@@ -6,4 +6,4 @@ I want to have a space dedicated to one of my fav hobbies that also acts like an
 
 ## What is this using?
 
-This page like my main [Website](logolicus.com) will be using Svelte Kit and TailwindCSS
+This page like my main [Website](logolicusz.com) will be using Svelte Kit and TailwindCSS
