@@ -10,7 +10,9 @@
 	<link href="/assets/fonts/daydream/Daydream.ttf" rel="stylesheet" />
 </svelte:head>
 
-<main class="flex h-dvh w-full gap-12 p-12">
+<main class="flex h-dvh w-full">
 	<Navbar />
-	{@render children()}
+	<div class="p-12 pl-0">
+		{@render children()}
+	</div>
 </main>
