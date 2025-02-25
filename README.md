@@ -1,13 +1,38 @@
-# Keyboard Archive
+# sv
 
-## What is this for?
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-I want to have a space dedicated to one of my fav hobbies that also acts like an archive in case I lose the original files and I want to be less dependent on other services like Instagram (For Image storing) and Notion (Storage database of current Items that I own).
+## Creating a project
 
-## What is this using?
+If you're seeing this, you've probably already done this step. Congrats!
 
-This page like my main [Website](https://logolicusz.com) will be using Svelte Kit and TailwindCSS.
+```bash
+# create a new project in the current directory
+npx sv create
 
-## Who is this for?
-me, mainly. fuck off.
-But you're free to use this however you want to, according to the [license](./LICENSE).
+# create a new project in my-app
+npx sv create my-app
+```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
