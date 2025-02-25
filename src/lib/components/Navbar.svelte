@@ -4,7 +4,7 @@
 
 <div class="flex h-full flex-col gap-6 p-12">
 	<a href="/">
-		<img class="w-32" alt="krchv" src="/assets/svg/logo.svg" />
+		<img class="w-34" alt="krchv" src="/assets/svg/logo.svg" />
 	</a>
 	<Search />
 	<div>

@@ -40,6 +40,8 @@
 		]
 	},
 	"dependencies": {
+		"@fontsource/geist-mono": "^5.1.1",
+		"@fontsource/geist-sans": "^5.1.0",
 		"lucide-svelte": "^0.476.0"
 	}
 }

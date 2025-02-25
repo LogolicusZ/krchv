@@ -1,16 +1,20 @@
 @import 'tailwindcss';
 
-/* fonts */
+@import '@fontsource/geist-sans';
+@import '@fontsource/geist-mono';
 
 @theme {
 	/* FONTS */
 	--font-sans:
-		'Geist', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Geist Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 		'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 	--font-mono:
 		'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
 		'Courier New', monospace;
+	--font-daydream:
+		'Daydream', 'Geist Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 	/* COLORS */
 	--color-primary: #f260b3;
