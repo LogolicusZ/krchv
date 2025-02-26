@@ -2,6 +2,12 @@
 	import { Search } from 'lucide-svelte';
 </script>
 
+<style>
+	input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+</style>
+
 <div>
 	<div class="flex items-center justify-center">
 		<div class="relative">
