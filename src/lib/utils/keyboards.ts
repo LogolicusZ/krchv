@@ -10,26 +10,30 @@ import type { Keyboard } from '$lib/types/keyboards';
  * @returns The parsed YAML content as a JavaScript object
  */
 export async function loadYamlFile(filename: string): Promise<Keyboard | undefined> {
-	// Ensure filename has .yml or .yaml extension
-	if (!filename.endsWith('.yml') && !filename.endsWith('.yaml')) {
-		filename = `${filename}.yaml`;
+	const __dirname = path.dirname(fileURLToPath(import.meta.url));
+	const assetsDir = path.resolve(__dirname, '../../assets');
+
+	// Check if filename has any extension at all
+	if (!path.extname(filename)) {
+		const baseName = filename;
+		const yamlPath = path.join(assetsDir, `${baseName}.yaml`);
+		const ymlPath = path.join(assetsDir, `${baseName}.yml`);
+
+		// Check for existence of both extensions
+		const yamlExists = fs.existsSync(yamlPath);
+		const ymlExists = fs.existsSync(ymlPath);
+
+		if (yamlExists && ymlExists) {
+			throw new Error(`Both ${baseName}.yml and ${baseName}.yaml exist!`);
+		}
+		filename = ymlExists ? `${baseName}.yml` : `${baseName}.yaml`;
 	}
 
 	try {
-		const __dirname = path.dirname(fileURLToPath(import.meta.url)); // get the directory of the current module
-
-		// construct the absolute path to the assets directory
-		const assetsDir = path.resolve(__dirname, '../../assets');
 		const filePath = path.join(assetsDir, filename);
-
-		// read the file
 		const fileContent = fs.readFileSync(filePath, 'utf8');
-
-		// parse yaml data
-		const parsedData = yaml.load(fileContent);
-		return parsedData;
+		return yaml.load(fileContent);
 	} catch (err) {
-		// throw error on failure
 		console.error(`Error loading YAML file ${filename}:`, err);
 		throw err;
 	}
@@ -44,7 +48,7 @@ export async function getAllKeyboardIds(): Promise<string[]> {
 		const __dirname = path.dirname(fileURLToPath(import.meta.url)); // get the directory of the current module
 
 		// construct the absolute path to the assets directory
-		const assetsDir = path.resolve(__dirname, '../../assets');
+		const assetsDir = path.resolve(__dirname, '../../assets/keyboards');
 
 		// read all files in the directory
 		const files = fs.readdirSync(assetsDir);

@@ -22,7 +22,7 @@
 				for="search"
 				class="peer-focus:text-primary absolute -top-4 left-0 cursor-text text-xs transition-all peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-focus:text-xs peer-focus:opacity-0"
 			>
-				<span class="flex items-center gap-2"><Search size="18" /> Search the archive...</span>
+				<span class="flex items-center gap-2"><Search size="18" /> Search the archives...</span>
 			</label>
 		</div>
 	</div>

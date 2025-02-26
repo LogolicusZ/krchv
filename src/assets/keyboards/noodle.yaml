@@ -1,0 +1,22 @@
+---
+id: noodle
+name: Noodle.Zip
+designer: dnworks
+material:
+  color: '#C193BB'
+  finish: Anodized Metal (Purple)
+keycaps: Test Keycaps lmao
+switches: Switches
+notes: |
+  Epp built on stream.</br>
+  Alu plate.
+status: collection
+images:
+  - src: /assets/img/keyboards/noodle/DSC_1.avif
+  - src: /assets/img/keyboards/noodle/DSC_2.avif
+  - src: /assets/img/keyboards/noodle/DSC_3.avif
+  - src: /assets/img/keyboards/noodle/DSC_4.avif
+  - src: /assets/img/keyboards/noodle/DSC_5.avif
+  - src: /assets/img/keyboards/noodle/DSC_6.avif
+  - src: /assets/img/keyboards/noodle/DSC_7.avif
+  - src: /assets/img/keyboards/noodle/DSC_8.avif

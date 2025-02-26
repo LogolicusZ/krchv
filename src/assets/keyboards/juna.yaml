@@ -1,4 +1,5 @@
 ---
+id: juna
 name: Juna
 designer: logolicusz
 material:
@@ -7,6 +8,6 @@ material:
 keycaps: Test Keycaps lmao
 switches: Switches
 notes: |
-  Epp built on stream.
+  Epp built on stream.</br>
   Alu plate.
 status: collection

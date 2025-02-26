@@ -1,5 +1,6 @@
 // keyboard type
 interface Keyboard {
+	id: string;
 	name: string;
 	designer: Designer | string;
 	material: Material;

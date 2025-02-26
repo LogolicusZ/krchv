@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Search from './Search.svelte';
 	import { ChevronDown } from 'lucide-svelte';
-	import { getAllKeyboardIds } from '$lib/utils/keyboards';
 
-	const keyboards: string[] = getAllKeyboardIds();
+	let { data } = $props();
+	const keyboards = data.keyboards;
 </script>
 
 <div class="flex h-full flex-col gap-6 p-12">
@@ -14,11 +14,14 @@
 	<div>
 		<p class="text-sm uppercase opacity-50">Keyboards</p>
 		<ul>
-			<li>Noodle.zip</li>
-			<li>Juna</li>
-			<li>Cycle7</li>
+			{#each keyboards as k}
+				<li><a class="unset-link" href="/keyboard/{k.id}">{k.name}</a></li>
+			{/each}
 			<li>
-				<a class="unset-link flex items-center gap-1" href="/"><ChevronDown size="18" /> more...</a>
+				<a
+					class="unset-link flex items-center gap-1 opacity-65 hover:opacity-85"
+					href="/table/keyboards"><ChevronDown size="18" /> more...</a
+				>
 			</li>
 		</ul>
 	</div>
