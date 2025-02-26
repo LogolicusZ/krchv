@@ -2,14 +2,12 @@
 
 @import '@fontsource/geist-sans';
 @import '@fontsource/geist-mono';
-
-
 @font-face {
 	font-family: 'Daydream';
 	src: url('/assets/fonts/daydream.ttf') format('truetype');
 	font-weight: normal;
-    font-style: normal;
-  }
+	font-style: normal;
+}
 
 @theme {
 	/* FONTS */
@@ -36,11 +34,11 @@
 	--color-link-secondary: var(--color-secondary);
 }
 
-/* apply body styles */
+/* apply general styles */
 body {
 	@apply bg-base-100 text-base-content;
 }
 
-a {
-	@apply text-link-primary underline hover:brightness-[80%];
+a:not(.unset-link) {
+	@apply text-link-primary cursor-pointer underline hover:brightness-[80%];
 }

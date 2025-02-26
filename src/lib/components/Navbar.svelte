@@ -1,5 +1,9 @@
-<script>
+<script lang="ts">
 	import Search from './Search.svelte';
+	import { ChevronDown } from 'lucide-svelte';
+	import { getAllKeyboardIds } from '$lib/utils/keyboards';
+
+	const keyboards: string[] = getAllKeyboardIds();
 </script>
 
 <div class="flex h-full flex-col gap-6 p-12">
@@ -13,7 +17,9 @@
 			<li>Noodle.zip</li>
 			<li>Juna</li>
 			<li>Cycle7</li>
-			<li>&rarr; more...</li>
+			<li>
+				<a class="unset-link flex items-center gap-1" href="/"><ChevronDown size="18" /> more...</a>
+			</li>
 		</ul>
 	</div>
 	<div>
@@ -28,9 +34,9 @@
 	</div>
 	<div class="mt-auto flex flex-col">
 		<p class="text-sm uppercase opacity-50">Legal</p>
-		<!-- <a class="!text-base-content !no-underline hover:opacity-80" href="/">Home</a> -->
-		<a class="!text-base-content !no-underline hover:opacity-80" href="/">Impressum</a>
-		<a class="!text-base-content mb-6 !no-underline hover:opacity-80" href="/"
+		<!-- <a class="text-base-content unset-link no-underline hover:opacity-80" href="/">Home</a> -->
+		<a class="text-base-content unset-link no-underline hover:opacity-80" href="/">Impressum</a>
+		<a class="text-base-content unset-link mb-6 no-underline hover:opacity-80" href="/"
 			>Datenschutzerklärung</a
 		>
 		<p>&copy; 2025 LogolicusZ</p>
