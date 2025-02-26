@@ -1,1 +1,1 @@
-<h1 class="text-4xl">noodle.zip</h1>
+<h1 class="font-daydream , text-4xl">noodle.zip</h1>
