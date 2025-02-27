@@ -11,14 +11,32 @@ export async function load({ params }: { params: Params }) {
 	const keyboardId = params.keyboard;
 
 	try {
-		// Use the loadYamlFile function to load the keyboard data
+		// Load the keyboard data
 		const keyboardData = await loadYamlFile(`keyboards/${keyboardId}`);
 
-		return {
-			keyboard: keyboardData
-		};
-	} catch (err) {
-		console.error(`Failed to load keyboard data for ${keyboardId}:`, err);
+		if (!keyboardData) {
+			throw error(404, `Keyboard ${keyboardId} not found`);
+		}
+
+		try {
+			// Load the designer data
+			const designerData = await loadYamlFile(`designers/${keyboardData.designer}`);
+
+			return {
+				keyboard: keyboardData,
+				designer: designerData
+			};
+		} catch (designerErr) {
+			console.error(`Failed to load designer data for ${keyboardData.designer}:`, designerErr);
+
+			// Return keyboard data even if designer data is missing
+			return {
+				keyboard: keyboardData,
+				designer: null
+			};
+		}
+	} catch (keyboardErr) {
+		console.error(`Failed to load keyboard data for ${keyboardId}:`, keyboardErr);
 		throw error(404, `Keyboard ${keyboardId} not found`);
 	}
 }

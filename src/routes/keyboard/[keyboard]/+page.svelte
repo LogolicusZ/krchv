@@ -1,6 +1,7 @@
 <script lang="ts">
 	let { data } = $props();
 	const keyboard = $derived(data.keyboard);
+	const designer = $derived(data.designer);
 </script>
 
 <svelte:head>
@@ -13,11 +14,15 @@
 	<tbody>
 		<tr>
 			<td class="py-2 pr-4 font-bold">Designer</td>
-			<td
-				>{typeof keyboard?.designer === 'string'
-					? keyboard?.designer
-					: keyboard?.designer?.name}</td
-			>
+			<td>
+				{#if designer.url && designer.name}
+					<a href={designer?.url}>{designer?.name}</a>
+				{:else if designer.name}
+					<p>{designer.name}</p>
+				{:else}
+					<p>&mdash;</p>
+				{/if}
+			</td>
 		</tr>
 		<tr>
 			<td class="py-2 pr-4 font-bold">Material</td>
