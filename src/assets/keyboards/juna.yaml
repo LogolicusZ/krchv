@@ -5,8 +5,10 @@ designer: logolicusz
 material:
   color: '#4fb86b'
   finish: Anodized Metal (Green)
-keycaps: Test Keycaps lmao
-switches: Switches
+keycaps:
+  name: Test Keycaps lmao
+switches:
+  name: Switches
 notes: |
   Epp built on stream.</br>
   Alu plate.

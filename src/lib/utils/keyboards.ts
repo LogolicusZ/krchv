@@ -2,14 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 import { fileURLToPath } from 'url';
-import type { Keyboard } from '$lib/types/keyboards';
+import type { Designer, Keyboard } from '$lib/types/keyboards';
 
 /**
  * Loads a YAML file from the src/assets directory
  * @param filename - The name of the YAML file (with or without extension)
  * @returns The parsed YAML content as a JavaScript object
  */
-export async function loadYamlFile(filename: string): Promise<Keyboard | undefined> {
+export async function loadYamlFile(filename: string): Promise<Keyboard | Designer | undefined> {
 	const __dirname = path.dirname(fileURLToPath(import.meta.url));
 	const assetsDir = path.resolve(__dirname, '../../assets');
 

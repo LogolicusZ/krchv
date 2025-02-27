@@ -6,7 +6,7 @@
 
 <main class="flex h-dvh w-full overflow-hidden">
 	<Navbar {data} />
-	<div class="overflow-auto p-12 pl-0">
+	<div class="h-full w-full overflow-auto p-12 pl-0">
 		{@render children()}
 	</div>
 </main>

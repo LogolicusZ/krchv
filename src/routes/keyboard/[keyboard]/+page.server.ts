@@ -1,3 +1,4 @@
+import type { Designer, Keyboard } from '$lib/types/keyboards';
 import { loadYamlFile } from '$lib/utils/keyboards';
 import { error } from '@sveltejs/kit';
 
@@ -12,7 +13,7 @@ export async function load({ params }: { params: Params }) {
 
 	try {
 		// Load the keyboard data
-		const keyboardData = await loadYamlFile(`keyboards/${keyboardId}`);
+		const keyboardData = (await loadYamlFile(`keyboards/${keyboardId}`)) as Keyboard;
 
 		if (!keyboardData) {
 			throw error(404, `Keyboard ${keyboardId} not found`);
@@ -20,7 +21,7 @@ export async function load({ params }: { params: Params }) {
 
 		try {
 			// Load the designer data
-			const designerData = await loadYamlFile(`designers/${keyboardData.designer}`);
+			const designerData = (await loadYamlFile(`designers/${keyboardData.designer}`)) as Designer;
 
 			return {
 				keyboard: keyboardData,

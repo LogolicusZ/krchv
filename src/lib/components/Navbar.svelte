@@ -6,7 +6,7 @@
 	const keyboards = data.keyboards;
 </script>
 
-<div class="flex h-full flex-col gap-6 p-12">
+<div class="z-50 flex h-full flex-col gap-6 p-12">
 	<a href="/">
 		<img class="w-34" alt="krchv" src="/assets/svg/logo.svg" />
 	</a>
