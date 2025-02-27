@@ -1,0 +1,21 @@
+---
+id: bias
+name: Bias V2
+designer: baionlenja
+material:
+  color: '#e7ecef'
+  finish: Anodized Silver
+keycaps:
+  name: GMK Striker
+switches:
+  name: MX Blacks L+F
+status: Collection
+notes: |
+  Alu plate
+images:
+  - src: /assets/img/keyboards/bias/DSC_43.avif
+  - src: /assets/img/keyboards/bias/DSC_45.avif
+  - src: /assets/img/keyboards/bias/DSC_46.avif
+  - src: /assets/img/keyboards/bias/DSC_48.avif
+  - src: /assets/img/keyboards/bias/DSC_49.avif
+  - src: /assets/img/keyboards/bias/DSC_50.avif

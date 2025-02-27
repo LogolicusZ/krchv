@@ -4,7 +4,24 @@ name: SBL
 designer: dnworks
 material:
   color: '#3EB489'
-  finish: Anodized Metal (Mint)
+  finish: Anodized Mint
+keycaps:
+  name: GMK Rubrehose
 switches:
   name: MX Browns L + F
-status: collection
+status: WTS
+notes: |
+  Want to Sell, hit me up on discord!</br>
+  UMWHPE plate</br>
+  CF palate
+images:
+  - src: /assets/img/keyboards/sbl/DSC_30.avif
+  - src: /assets/img/keyboards/sbl/DSC_35.avif
+  - src: /assets/img/keyboards/sbl/DSC_28.avif
+  - src: /assets/img/keyboards/sbl/DSC_23.avif
+  - src: /assets/img/keyboards/sbl/DSC_24.avif
+  - src: /assets/img/keyboards/sbl/DSC_26.avif
+  - src: /assets/img/keyboards/sbl/DSC_27.avif
+  - src: /assets/img/keyboards/sbl/DSC_29.avif
+  - src: /assets/img/keyboards/sbl/DSC_37.avif
+  - src: /assets/img/keyboards/sbl/DSC_38.avif

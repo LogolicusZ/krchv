@@ -3,13 +3,25 @@ id: juna
 name: Juna
 designer: logolicusz
 material:
-  color: '#4fb86b'
-  finish: Anodized Metal (Green)
+  color: '#5e5c5b'
+  finish: Anodized Dark Grey/Brown
 keycaps:
-  name: Test Keycaps lmao
+  name: GMK Dolch R5
 switches:
-  name: Switches
+  name: MX Blacks L+F
 notes: |
-  Epp built on stream.</br>
-  Alu plate.
+  Cem3 pcb</br>
+  Alu plate
 status: collection
+images:
+  - src: /assets/img/keyboards/juna/DSC_12.avif
+  - src: /assets/img/keyboards/juna/DSC_10.avif
+  - src: /assets/img/keyboards/juna/DSC_16.avif
+  - src: /assets/img/keyboards/juna/DSC_18.avif
+  - src: /assets/img/keyboards/juna/DSC_11.avif
+  - src: /assets/img/keyboards/juna/DSC_31.avif
+  - src: /assets/img/keyboards/juna/DSC_32.avif
+  - src: /assets/img/keyboards/juna/DSC_34.avif
+  - src: /assets/img/keyboards/juna/DSC_33.avif
+  - src: /assets/img/keyboards/juna/DSC_15.avif
+  - src: /assets/img/keyboards/juna/DSC_40.avif
