@@ -26,11 +26,13 @@
 
 <h1 class="font-daydream text-4xl">{keyboard?.name}</h1>
 
-<table class="mt-4 w-full border-collapse">
-	<tbody>
+<table class="mt-4 w-full table-fixed border-collapse lg:w-[32rem]">
+	<tbody class="divide-y divide-gray-200">
 		<tr>
-			<th class="py-2 pr-4 text-left font-bold">Designer</th>
-			<td>
+			<th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50"
+				>Designer</th
+			>
+			<td class="py-4 text-left text-sm font-medium">
 				{#if designer && designer.url && designer.name}
 					<a href={designer.url}>{designer.name}</a>
 				{:else if designer && designer.name}
@@ -41,8 +43,10 @@
 			</td>
 		</tr>
 		<tr>
-			<th class="py-2 pr-4 text-left font-bold">Material</th>
-			<td class="flex flex-row items-center gap-2 py-2">
+			<th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50"
+				>Material</th
+			>
+			<td class="flex flex-row items-center gap-2 py-4 text-left text-sm font-medium">
 				{#if keyboard.material.finish && keyboard.material.color}
 					<div
 						class="min-h-4 min-w-4 rounded-full"
@@ -57,8 +61,9 @@
 			</td>
 		</tr>
 		<tr>
-			<th class="py-2 pr-4 text-left font-bold">Keycaps</th>
-			<td>
+			<th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Keycaps</th
+			>
+			<td class="py-4 text-left text-sm font-medium">
 				{#if keyboard.keycaps && keyboard.keycaps.url && keyboard.keycaps.name}
 					<a href={keyboard.keycaps.url}>{keyboard.keycaps.name}</a>
 				{:else if keyboard.keycaps && keyboard.keycaps.name}
@@ -69,8 +74,10 @@
 			</td>
 		</tr>
 		<tr>
-			<th class="py-2 pr-4 text-left font-bold">Switches</th>
-			<td>
+			<th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50"
+				>Switches</th
+			>
+			<td class="py-4 text-left text-sm font-medium">
 				{#if keyboard.switches && keyboard.switches.url && keyboard.switches.name}
 					<a href={keyboard.switches.url}>{keyboard.switches.name}</a>
 				{:else if keyboard.switches && keyboard.switches.name}
@@ -81,8 +88,8 @@
 			</td>
 		</tr>
 		<tr>
-			<th class="py-2 pr-4 text-left font-bold">Status</th>
-			<td>
+			<th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Status</th>
+			<td class="py-4 text-left text-sm font-medium">
 				{#if keyboard.status}
 					<p>{keyboard.status}</p>
 				{:else}
@@ -91,8 +98,8 @@
 			</td>
 		</tr>
 		<tr>
-			<th class="py-2 pr-4 text-left font-bold">Notes</th>
-			<td>
+			<th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Notes</th>
+			<td class="py-4 text-left text-sm font-medium">
 				{#if keyboard.notes}
 					<!-- eslint-disable-next-line svelte/no-at-html-tags (content is sanitized with DOMPurify) -->
 					{@html sanitizeHtml(keyboard.notes)}

@@ -2,12 +2,6 @@
 	import { Search } from 'lucide-svelte';
 </script>
 
-<style>
-	input[type="search"]::-webkit-search-cancel-button {
-  display: none;
-}
-</style>
-
 <div>
 	<div class="flex items-center justify-center">
 		<div class="relative">
@@ -16,7 +10,7 @@
 				name="search"
 				type="search"
 				placeholder=""
-				class="peer focus:border-primary border-b border-gray-300 bg-inherit py-1 transition-colors focus:outline-none"
+				class="peer focus:border-primary border-b border-gray-200 bg-inherit py-1 transition-colors focus:outline-none"
 			/>
 			<label
 				for="search"
@@ -27,3 +21,9 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	input[type='search']::-webkit-search-cancel-button {
+		display: none;
+	}
+</style>

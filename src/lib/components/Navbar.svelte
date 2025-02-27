@@ -1,12 +1,34 @@
 <script lang="ts">
 	import Search from './Search.svelte';
-	import { ChevronDown } from 'lucide-svelte';
+	import { ChevronDown, Menu, X } from 'lucide-svelte';
 
 	let { data } = $props();
 	const keyboards = data.keyboards;
+
+	// Add state to track if sidebar is open
+	let sidebarOpen = $state(false);
+
+	// Toggle sidebar function
+	const toggleSidebar = () => {
+		sidebarOpen = !sidebarOpen;
+	};
 </script>
 
-<div class="z-50 flex h-full flex-col gap-6 p-12">
+<button
+	onclick={toggleSidebar}
+	class="bg-base-100 absolute top-12 left-0 z-40 cursor-pointer rounded-r-full rounded-br-full border-[1px] border-l-0 border-gray-300 p-2 pl-3 md:hidden lg:hidden"
+	><Menu /></button
+>
+
+<div
+	class="bg-base-100 fixed top-0 left-0 z-50 flex h-full w-64 flex-col gap-6 overflow-x-visible overflow-y-clip p-12 shadow-lg transition-transform duration-300 ease-in-out md:static md:translate-x-0 md:shadow-none lg:static lg:translate-x-0 lg:shadow-none {sidebarOpen
+		? 'translate-x-0'
+		: '-translate-x-full'}"
+>
+	<button
+		onclick={toggleSidebar}
+		class="absolute top-12 left-2 cursor-pointer p-1 md:hidden lg:hidden"><X /></button
+	>
 	<a href="/">
 		<img class="w-34" alt="krchv" src="/assets/svg/logo.svg" />
 	</a>
