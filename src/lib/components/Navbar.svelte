@@ -16,7 +16,7 @@
 
 <button
 	onclick={toggleSidebar}
-	class="bg-base-100 absolute top-12 left-0 z-40 cursor-pointer rounded-r-full rounded-br-full border-[1px] border-l-0 border-gray-300 p-2 pl-3 md:hidden lg:hidden"
+	class="bg-base-100 absolute top-12 left-0 z-40 cursor-pointer rounded-r-full rounded-br-full border-[1px] border-l-0 border-dashed border-gray-400 p-2 pl-3 md:hidden lg:hidden"
 	><Menu /></button
 >
 
