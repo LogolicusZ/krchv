@@ -3,7 +3,7 @@ id: noodle
 name: Noodle.Zip
 designer: dnworks
 material:
-  color: '#C193BB'
+  color: "#C193BB"
   finish: Anodized Metal (Purple)
 keycaps:
   name: Test Keycaps lmao

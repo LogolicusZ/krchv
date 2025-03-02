@@ -3,7 +3,7 @@ id: sbl
 name: SBL
 designer: dnworks
 material:
-  color: '#3EB489'
+  color: "#3EB489"
   finish: Anodized Mint
 keycaps:
   name: GMK Rubrehose

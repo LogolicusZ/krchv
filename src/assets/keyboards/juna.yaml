@@ -3,7 +3,7 @@ id: juna
 name: Juna
 designer: logolicusz
 material:
-  color: '#5e5c5b'
+  color: "#5e5c5b"
   finish: Anodized Dark Grey/Brown
 keycaps:
   name: GMK Dolch R5

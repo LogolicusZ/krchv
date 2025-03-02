@@ -3,7 +3,7 @@ id: bias
 name: Bias V2
 designer: baionlenja
 material:
-  color: '#e7ecef'
+  color: "#e7ecef"
   finish: Anodized Silver
 keycaps:
   name: GMK Striker

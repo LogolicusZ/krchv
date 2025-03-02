@@ -1,44 +1,43 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@import '@fontsource/geist-sans';
-@import '@fontsource/geist-mono';
+@import "@fontsource/geist-sans";
+@import "@fontsource/geist-mono";
 @font-face {
-	font-family: 'Daydream';
-	src: url('/assets/fonts/daydream.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+  font-family: "Daydream";
+  src: url("/assets/fonts/daydream.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @theme {
-	/* FONTS */
-	--font-sans:
-		'Geist Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol', 'Noto Color Emoji';
-	--font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-	--font-mono:
-		'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-		'Courier New', monospace;
-	--font-daydream:
-		'Daydream', 'Geist Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  /* FONTS */
+  --font-sans:
+    "Geist Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-daydream:
+    "Daydream", "Geist Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
 
-	/* COLORS */
-	--color-primary: #f260b3;
-	--color-secondary: #e860f2;
-	/* dark mode primary: #9f60f2 */
+  /* COLORS */
+  --color-primary: #f260b3;
+  --color-secondary: #e860f2;
+  /* dark mode primary: #9f60f2 */
 
-	/* base colors */
-	--color-base-100: #fffefb;
-	--color-base-content: oklch(0.141 0.005 285.823);
-	--color-link-primary: var(--color-primary);
-	--color-link-secondary: var(--color-secondary);
+  /* base colors */
+  --color-base-100: #fffefb;
+  --color-base-content: oklch(0.141 0.005 285.823);
+  --color-link-primary: var(--color-primary);
+  --color-link-secondary: var(--color-secondary);
 }
 
 /* apply general styles */
 body {
-	@apply bg-base-100 text-base-content;
+  @apply bg-base-100 text-base-content;
 }
 
 a:not(.unset-link) {
-	@apply text-link-primary cursor-pointer underline hover:brightness-[80%];
+  @apply text-link-primary cursor-pointer underline hover:brightness-[80%];
 }
