@@ -65,10 +65,10 @@
     <p class="text-sm uppercase opacity-50">Legal</p>
     <!-- <a class="text-base-content unset-link no-underline hover:opacity-80" href="/">Home</a> -->
     <a class="text-base-content unset-link no-underline hover:opacity-80" href="/" onclick={toggleOffSidebar}>
-      Impressum
+      Imprint
     </a>
     <a class="text-base-content unset-link mb-6 no-underline hover:opacity-80" href="/" onclick={toggleOffSidebar}>
-      Datenschutzerklärung
+      Privacy Policy
     </a>
     <p>&copy; 2025 LogolicusZ</p>
     <a href="//logolicusz.com">&larr; logolicusz.com</a>
