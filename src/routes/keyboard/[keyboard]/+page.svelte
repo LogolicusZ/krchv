@@ -43,10 +43,10 @@
     <tr>
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Material</th>
       <td class="flex flex-row items-center gap-2 py-4 text-left text-sm font-medium">
-        {#if keyboard.material.finish && keyboard.material.color}
+        {#if keyboard && keyboard.material.finish && keyboard.material.color}
           <div class="min-h-4 min-w-4 rounded-full" style:background-color={keyboard.material.color}></div>
           <p>{keyboard.material.finish}</p>
-        {:else if keyboard.material.finish}
+        {:else if keyboard && keyboard.material.finish}
           <p>{keyboard.material.finish}</p>
         {:else}
           <p>&mdash;</p>
@@ -56,9 +56,9 @@
     <tr>
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Keycaps</th>
       <td class="py-4 text-left text-sm font-medium">
-        {#if keyboard.keycaps && keyboard.keycaps.url && keyboard.keycaps.name}
+        {#if keyboard && keyboard.keycaps && keyboard.keycaps.url && keyboard.keycaps.name}
           <a href={keyboard.keycaps.url}>{keyboard.keycaps.name}</a>
-        {:else if keyboard.keycaps && keyboard.keycaps.name}
+        {:else if keyboard && keyboard.keycaps && keyboard.keycaps.name}
           <p>{keyboard.keycaps.name}</p>
         {:else}
           <p>&mdash;</p>
@@ -68,9 +68,9 @@
     <tr>
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Switches</th>
       <td class="py-4 text-left text-sm font-medium">
-        {#if keyboard.switches && keyboard.switches.url && keyboard.switches.name}
+        {#if keyboard && keyboard.switches && keyboard.switches.url && keyboard.switches.name}
           <a href={keyboard.switches.url}>{keyboard.switches.name}</a>
-        {:else if keyboard.switches && keyboard.switches.name}
+        {:else if keyboard && keyboard.switches && keyboard.switches.name}
           <p>{keyboard.switches.name}</p>
         {:else}
           <p>&mdash;</p>
@@ -90,7 +90,7 @@
     <tr>
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Notes</th>
       <td class="py-4 text-left text-sm font-medium">
-        {#if keyboard.notes}
+        {#if keyboard && keyboard.notes}
           <!-- eslint-disable-next-line svelte/no-at-html-tags (content is sanitized with DOMPurify) -->
           {@html sanitizeHtml(keyboard.notes)}
         {:else}
@@ -107,8 +107,7 @@
       <img
         src={keyboard.images[0].src}
         alt={keyboard.images[0].alt || keyboard.name}
-        class="mb-4 block cursor-zoom-in rounded-sm transition-transform hover:scale-[0.985]"
-      />
+        class="mb-4 block cursor-zoom-in rounded-sm transition-transform hover:scale-[0.985]" />
     {/if}
     {#if keyboard.images.length > 1}
       <div class="w-[min(calc(var(3)*18rem+var(4)*1rem),90%)] columns-[3_18rem] gap-4">
@@ -116,8 +115,7 @@
           <img
             src={image.src}
             alt={image.alt || keyboard.name}
-            class="mb-4 block cursor-zoom-in rounded-sm transition-transform hover:scale-[0.985]"
-          />
+            class="mb-4 block cursor-zoom-in rounded-sm transition-transform hover:scale-[0.985]" />
         {/each}
       </div>
     {/if}
