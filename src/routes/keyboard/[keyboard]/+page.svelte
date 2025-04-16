@@ -1,9 +1,11 @@
 <script lang="ts">
+  import Gallery from "$lib/components/Gallery.svelte";
   import { error } from "@sveltejs/kit";
   import DOMPurify from "isomorphic-dompurify";
 
   let { data } = $props();
 
+  // if keyboard data is not available, throw an error
   if (!data?.keyboard) {
     error(404, "The requested keyboard information could not be loaded");
   }
@@ -101,23 +103,4 @@
   </tbody>
 </table>
 
-{#if keyboard.images && keyboard.images.length > 0}
-  <div class="mt-6">
-    {#if keyboard.images[0]}
-      <img
-        src={keyboard.images[0].src}
-        alt={keyboard.images[0].alt || keyboard.name}
-        class="mb-4 block cursor-zoom-in rounded-sm transition-transform hover:scale-[0.985]" />
-    {/if}
-    {#if keyboard.images.length > 1}
-      <div class="w-[min(calc(var(3)*18rem+var(4)*1rem),90%)] columns-[3_18rem] gap-4">
-        {#each keyboard.images.slice(1) as image}
-          <img
-            src={image.src}
-            alt={image.alt || keyboard.name}
-            class="mb-4 block cursor-zoom-in rounded-sm transition-transform hover:scale-[0.985]" />
-        {/each}
-      </div>
-    {/if}
-  </div>
-{/if}
+<Gallery data={keyboard} />

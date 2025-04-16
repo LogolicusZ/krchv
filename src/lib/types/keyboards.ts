@@ -40,7 +40,9 @@ interface Switches {
 interface Images {
   alt: string;
   src: string;
+  width: number;
+  height: number;
 }
 
 // export interfaces as types
-export type { Keyboard, Designer, Material, Keycaps, Switches };
+export type { Keyboard, Designer, Material, Keycaps, Switches, Images };
