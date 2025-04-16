@@ -25,7 +25,7 @@
 </button>
 
 <div
-  class="bg-base-100 fixed top-0 left-0 z-50 flex h-full w-64 flex-col gap-6 overflow-x-visible overflow-y-clip p-12 shadow-lg transition-transform duration-300 ease-in-out md:static md:translate-x-0 md:shadow-none lg:static lg:translate-x-0 lg:shadow-none {sidebarOpen
+  class="bg-base-100 fixed top-0 left-0 z-50 flex h-full w-64 min-w-64 flex-col gap-6 overflow-x-visible overflow-y-clip p-12 shadow-lg transition-transform duration-300 ease-in-out md:static md:translate-x-0 md:shadow-none lg:static lg:translate-x-0 lg:shadow-none {sidebarOpen
     ? 'translate-x-0'
     : '-translate-x-full'}">
   <button onclick={toggleOffSidebar} class="absolute top-12 left-2 cursor-pointer p-1 md:hidden lg:hidden">
@@ -34,16 +34,23 @@
   <a href="/" onclick={toggleOffSidebar}>
     <img class="w-34" alt="krchv" src="/assets/svg/logo.svg" />
   </a>
-  <Search />
+  <Search {keyboards} />
   <div>
     <p class="text-sm uppercase opacity-50">Keyboards</p>
     <ul>
       {#each keyboards as k}
-        <li><a class="unset-link" href="/keyboard/{k.id}" onclick={toggleOffSidebar}>{k.name}</a></li>
+        <li>
+          <a
+            class="text-base-content unset-link no-underline hover:opacity-80"
+            href="/keyboard/{k.id}"
+            onclick={toggleOffSidebar}>
+            {k.name}
+          </a>
+        </li>
       {/each}
       <li>
         <a
-          class="unset-link flex items-center gap-1 opacity-65 hover:opacity-85"
+          class="unset-link flex items-center gap-1 opacity-65 hover:opacity-80"
           href="/table/keyboards"
           onclick={toggleOffSidebar}>
           <ChevronDown size="18" /> more...

@@ -4,6 +4,10 @@
   let { children, data } = $props();
 </script>
 
+<svelte:head>
+  <title>krchv</title>
+</svelte:head>
+
 <main class="flex h-dvh w-full overflow-hidden">
   <Navbar {data} />
   <div class="h-full w-full overflow-auto p-12 pl-12 md:pl-0 lg:pl-0">
