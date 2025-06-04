@@ -1,5 +1,5 @@
 import type { Designer, Images, Keyboard } from "$lib/types/keyboards";
-import { loadYamlFile } from "$lib/utils/keyboards";
+import { loadYamlFile } from "$lib/utils/yaml";
 import { error } from "@sveltejs/kit";
 import fs from "fs";
 import path from "path";

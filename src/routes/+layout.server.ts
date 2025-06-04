@@ -1,7 +1,7 @@
-import { getAllKeyboardIds, loadYamlFile } from "$lib/utils/keyboards";
+import { getAllYamlIds, loadYamlFile } from "$lib/utils/yaml";
 
 export async function load() {
-  const keyboardIds = await getAllKeyboardIds();
+  const keyboardIds = await getAllYamlIds("keyboards");
   const keyboards = [];
 
   for (let i = 0; i < keyboardIds.length; i++) {

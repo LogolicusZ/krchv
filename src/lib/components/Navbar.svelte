@@ -5,6 +5,13 @@
   let { data } = $props();
   const keyboards = data.keyboards;
 
+  const databases = [
+    { name: "Keyboards", path: "keyboards" },
+    { name: "Keycaps", path: "keycaps" },
+    { name: "Switches", path: "switches" },
+    { name: "Accessories", path: "accessories" },
+  ];
+
   // Add state to track if sidebar is open
   let sidebarOpen = $state(false);
 
@@ -61,11 +68,16 @@
   <div>
     <p class="text-sm uppercase opacity-50">Database</p>
     <ul>
-      <li>Keyboards</li>
-      <li>Keycaps</li>
-      <li>Switches</li>
-      <li>Accessories</li>
-      <li>&rarr; more...</li>
+      {#each databases as db}
+        <li>
+          <a
+            class="text-base-content unset-link no-underline hover:opacity-80"
+            href="/table/{db.path}"
+            onclick={toggleOffSidebar}>
+            {db.name}
+          </a>
+        </li>
+      {/each}
     </ul>
   </div>
   <div class="mt-auto flex flex-col">

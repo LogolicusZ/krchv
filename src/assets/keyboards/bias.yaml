@@ -6,8 +6,10 @@ material:
   color: "#e7ecef"
   finish: Anodized Silver
 keycaps:
+  id: gmk-striker
   name: GMK Striker
 switches:
+  id: mx-black
   name: MX Blacks L+F
 status: Collection
 notes: |

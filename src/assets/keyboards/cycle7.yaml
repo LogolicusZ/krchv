@@ -6,8 +6,10 @@ material:
   color: "#e7ecef"
   finish: Anodized Silver
 keycaps:
+  id: rubrehose
   name: GMK Rubrehose
 switches:
+  id: nk-dream
   name: NK Dreams
 status: WTS
 notes: |

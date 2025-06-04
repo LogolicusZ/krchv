@@ -6,9 +6,11 @@ material:
   color: "#3EB489"
   finish: Anodized Mint
 keycaps:
+  id: rubrehose
   name: GMK Rubrehose
 switches:
-  name: MX Browns L + F
+  id: mx-brown
+  name: MX Browns L+F
 status: WTS
 notes: |
   Want to Sell, hit me up on discord!</br>

@@ -6,8 +6,10 @@ material:
   color: "#5e5c5b"
   finish: Anodized Dark Grey/Brown
 keycaps:
+  id: dolch-r5
   name: GMK Dolch R5
 switches:
+  id: mx-black
   name: MX Blacks L+F
 notes: |
   Cem3 pcb</br>

@@ -8,14 +8,15 @@ interface Keyboard {
   switches: Switches;
   notes: string;
   status: string;
-  images: Images[];
+  images: Image[];
 }
 
 // designer type
 interface Designer {
+  id: string;
   name: string;
   url: string;
-  // picture: string;
+  picture: Image;
 }
 
 // material (finish, color, etc.) type
@@ -25,19 +26,21 @@ interface Material {
 }
 
 // keycaps type
-interface Keycaps {
+interface Keycap {
+  id: string;
   name: string;
   url: string;
 }
 
 // switches type
 interface Switches {
+  id: string;
   name: string;
   url: string;
 }
 
 // images array type
-interface Images {
+interface Image {
   alt: string;
   src: string;
   width: number;
@@ -45,4 +48,4 @@ interface Images {
 }
 
 // export interfaces as types
-export type { Keyboard, Designer, Material, Keycaps, Switches, Images };
+export type { Keyboard, Designer, Material, Keycap, Switches, Image };
