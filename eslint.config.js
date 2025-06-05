@@ -8,6 +8,9 @@ import ts from "typescript-eslint";
 const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url));
 
 export default ts.config(
+  rules: {
+      "@typescript-eslint/no-explicit-any": "off"
+  },
   includeIgnoreFile(gitignorePath),
   js.configs.recommended,
   ...ts.configs.recommended,

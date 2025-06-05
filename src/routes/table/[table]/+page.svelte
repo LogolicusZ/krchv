@@ -1,16 +1,29 @@
 <script lang="ts">
-  let { data }: { data: { tableData: any[]; type: string } } = $props();
+  import { capitalize } from "$lib/utils";
 
-  const capitalize = (str) => (str ? str.charAt(0).toUpperCase() + str.slice(1) : "");
+  let { data } = $props<{ tableData: any[]; type: string }>();
 
   // get all unique keys from the data array
-  let columns: string[] = $state([]);
+  let allColumns = $state<string[]>([]);
 
-  if (data.tableData && data.tableData.length > 0) {
-    const keySet = new Set<string>();
-    data.tableData.forEach((item) => Object.keys(item).forEach((k) => keySet.add(k)));
-    columns = Array.from(keySet);
-  }
+  // filtered columns
+  let columns = $state<string[]>([]);
+
+  $effect(() => {
+    const rows = data.tableData;
+    let localKeys = new Set<string>();
+
+    if (rows?.length) {
+      for (const row of rows) {
+        Object.keys(row).forEach((k) => localKeys.add(k));
+      }
+    }
+
+    const colArray = Array.from(localKeys);
+    // write both from this one “pure” source
+    allColumns = colArray;
+    columns = data.type === "keyboards" ? colArray.filter((c) => c !== "id") : colArray;
+  });
 </script>
 
 <svelte:head>
@@ -36,15 +49,19 @@
               <td class="p-4 text-left text-sm font-medium">
                 {#if row[col] === undefined || row[col] === null}
                   &mdash;
-                {:else if typeof row[col] === "string" && row[col].match(/\.(jpg|jpeg|png|gif|webp)$/i)}
+                {:else if data.type === "keyboards" && col === "name" && row[col] != null}
+                  <a href="/keyboard/{row.id}">
+                    {row[col]}
+                  </a>
+                {:else if typeof row[col] === "string" && row[col].match(/\.(jpg|jpeg|png|gif|webp|avif)$/i)}
                   <img src={row[col]} alt="avatar" class="h-8 w-8 rounded object-cover" />
                 {:else if typeof row[col] === "string" && row[col].startsWith("http")}
-                  <a href={row[col]} target="_blank" class="text-blue-600 underline">{row[col]}</a>
+                  <a href={row[col]} target="_blank">{row[col]}</a>
                 {:else if typeof row[col] === "object" && Array.isArray(row[col])}
                   {#each row[col] as item, i (i)}
                     {#if typeof item === "object"}
                       {#if item.name && item.url}
-                        <a href={item.url} target="_blank" class="text-blue-600 underline">{item.name}</a>
+                        <a href={item.url} target="_blank">{item.name}</a>
                         {i < row[col].length - 1 ? ", " : ""}
                       {:else if item.finish && item.color}
                         <span class="inline-flex items-center">
@@ -62,7 +79,7 @@
                         <span>{item.name}</span>
                         {i < row[col].length - 1 ? ", " : ""}
                       {:else if item.url}
-                        <a href={item.url} target="_blank" class="text-blue-600 underline">{item.url}</a>
+                        <a href={item.url} target="_blank">{item.url}</a>
                         {i < row[col].length - 1 ? ", " : ""}
                       {:else}
                         <span>{JSON.stringify(item)}</span>
@@ -75,7 +92,7 @@
                   {/each}
                 {:else if typeof row[col] === "object" && row[col] !== null}
                   {#if row[col].name && row[col].url}
-                    <a href={row[col].url} target="_blank" class="text-blue-600 underline">{row[col].name}</a>
+                    <a href={row[col].url} target="_blank">{row[col].name}</a>
                   {:else if row[col].finish && row[col].color}
                     <span class="inline-flex items-center">
                       <span
@@ -89,7 +106,7 @@
                   {:else if row[col].name}
                     <span>{row[col].name}</span>
                   {:else if row[col].url}
-                    <a href={row[col].url} target="_blank" class="text-blue-600 underline">{row[col].url}</a>
+                    <a href={row[col].url} target="_blank">{row[col].url}</a>
                   {:else}
                     <span>{JSON.stringify(row[col])}</span>
                   {/if}

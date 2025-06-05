@@ -1,6 +1,6 @@
 <script lang="ts">
   import Search from "./Search.svelte";
-  import { ChevronDown, Menu, X } from "lucide-svelte";
+  import { ChevronRight, Menu, X } from "lucide-svelte";
 
   let { data } = $props();
   const keyboards = data.keyboards;
@@ -9,7 +9,7 @@
     { name: "Keyboards", path: "keyboards" },
     { name: "Keycaps", path: "keycaps" },
     { name: "Switches", path: "switches" },
-    { name: "Accessories", path: "accessories" },
+    { name: "Designers", path: "designers" },
   ];
 
   // Add state to track if sidebar is open
@@ -60,7 +60,7 @@
           class="unset-link flex items-center gap-1 opacity-65 hover:opacity-80"
           href="/table/keyboards"
           onclick={toggleOffSidebar}>
-          <ChevronDown size="18" /> more...
+          <ChevronRight size="18" /> more...
         </a>
       </li>
     </ul>
