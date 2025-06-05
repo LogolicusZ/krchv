@@ -94,7 +94,9 @@
       <td class="py-4 text-left text-sm font-medium">
         {#if keyboard && keyboard.notes}
           <!-- eslint-disable-next-line svelte/no-at-html-tags (content is sanitized with DOMPurify) -->
-          {@html sanitizeHtml(keyboard.notes)}
+          <span class="prose max-w-none whitespace-pre-wrap">
+            {@html sanitizeHtml(keyboard.notes)}
+          </span>
         {:else}
           <p>&mdash;</p>
         {/if}

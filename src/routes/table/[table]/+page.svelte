@@ -199,7 +199,7 @@
                     <span>{JSON.stringify(row[col])}</span>
                   {/if}
                 {:else if col === "notes"}
-                  <span class="prose max-w-none" style="white-space:pre-wrap">
+                  <span class="prose max-w-none whitespace-pre-wrap">
                     {@html row[col]}
                   </span>
                 {:else}
