@@ -3,7 +3,6 @@
   import type { Keyboard } from "$lib/types/keyboards";
   import PhotoSwipe, { type PreparedPhotoSwipeOptions } from "photoswipe";
   import PhotoSwipeLightbox, { type PhotoSwipeOptions } from "photoswipe/lightbox";
-  import { onMount } from "svelte";
 
   let {
     data,
@@ -42,10 +41,6 @@
     lightbox.init();
 
     return () => lightbox.destroy();
-  });
-
-  onMount(() => {
-    console.log(data.images[0].width && data.images[0].height);
   });
 </script>
 

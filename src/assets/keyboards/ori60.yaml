@@ -1,0 +1,21 @@
+---
+id: ori60
+name: Ori CLS-3//60
+designer: ori
+material:
+  color: "#000000"
+  finish: Anodized Black
+keycaps:
+  id: wobh
+  name: WoB Hangul
+switches:
+  id: mx-black
+  name: Cherry MX Blacks L + F
+status: Collection
+soundtest: https://www.youtube.com/embed/x9OHI3eTzNA
+notes: |
+  2 Solder PCBs
+  1 Hotswap PCB
+  Alu + PC Plates
+images:
+# https://www.youtube.com/embed/x9OHI3eTzNA?si=ryxTSK4GDKXBBt6k
