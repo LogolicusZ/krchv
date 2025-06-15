@@ -110,14 +110,17 @@
           <iframe
             width="280"
             height="156"
-            src={keyboard.soundtest}
+            src="https://youtube.com/embed/{keyboard.soundtest}"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
-            class="rounded-sm"
+            class="hidden rounded-sm md:block lg:block"
             allowfullscreen>
           </iframe>
+          <a class="inline md:hidden lg:hidden" href="https://www.youtube.com/watch?v={keyboard.soundtest}">
+            Watch on YouTube
+          </a>
         {:else}
           <p>&mdash;</p>
         {/if}
