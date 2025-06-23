@@ -1,6 +1,7 @@
 <script lang="ts">
   import { capitalize } from "$lib/utils";
   import { ChevronUp, ChevronDown } from "lucide-svelte";
+  import { sanitizeHtml } from "$lib/utils";
 
   // props
   let { data } = $props<{ tableData: any[]; type: string }>();
@@ -200,7 +201,8 @@
                   {/if}
                 {:else if col === "notes"}
                   <span class="prose max-w-none whitespace-pre-wrap">
-                    {@html row[col]}
+                    <!-- eslint-disable-next-line svelte/no-at-html-tags (content is sanitized with DOMPurify) -->
+                    {@html sanitizeHtml(row[col])}
                   </span>
                 {:else}
                   {row[col]}

@@ -1,7 +1,7 @@
 <script lang="ts">
   import Gallery from "$lib/components/Gallery.svelte";
   import { error } from "@sveltejs/kit";
-  import DOMPurify from "isomorphic-dompurify";
+  import { sanitizeHtml } from "$lib/utils";
 
   let { data } = $props();
 
@@ -12,14 +12,6 @@
 
   const keyboard = $derived(data.keyboard);
   const designer = $derived(data.designer);
-
-  // sanitize html
-  function sanitizeHtml(html: string) {
-    return DOMPurify.sanitize(html, {
-      ALLOWED_TAGS: ["br", "b", "strong", "i", "em", "mark", "a", "span", "u"],
-      ALLOWED_ATTR: ["href", "target", "class", "style"],
-    });
-  }
 </script>
 
 <svelte:head>
@@ -93,8 +85,8 @@
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Notes</th>
       <td class="py-4 text-left text-sm font-medium">
         {#if keyboard && keyboard.notes}
-          <!-- eslint-disable-next-line svelte/no-at-html-tags (content is sanitized with DOMPurify) -->
           <span class="prose max-w-none whitespace-pre-wrap">
+            <!-- eslint-disable-next-line svelte/no-at-html-tags (content is sanitized with DOMPurify) -->
             {@html sanitizeHtml(keyboard.notes)}
           </span>
         {:else}
