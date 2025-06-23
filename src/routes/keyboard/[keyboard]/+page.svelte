@@ -94,6 +94,30 @@
         {/if}
       </td>
     </tr>
+    <tr>
+      <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Soundtest</th>
+      <td class="py-4 text-left text-sm font-medium">
+        <!-- eslint-disable-next-line svelte/no-at-html-tags (content is sanitized with DOMPurify) -->
+        {#if keyboard.soundtest}
+          <iframe
+            width="280"
+            height="156"
+            src="https://youtube.com/embed/{keyboard.soundtest}"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            class="hidden rounded-sm md:block lg:block"
+            allowfullscreen>
+          </iframe>
+          <a class="inline md:hidden lg:hidden" href="https://www.youtube.com/watch?v={keyboard.soundtest}">
+            Watch on YouTube
+          </a>
+        {:else}
+          <p>&mdash;</p>
+        {/if}
+      </td>
+    </tr>
   </tbody>
 </table>
 

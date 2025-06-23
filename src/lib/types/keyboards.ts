@@ -4,11 +4,12 @@ interface Keyboard {
   name: string;
   designer: Designer | string;
   material: Material;
-  keycaps: Keycaps;
+  keycaps: Keycap;
   switches: Switches;
   notes: string;
   status: string;
   images: Image[];
+  soundtest: string;
 }
 
 // designer type

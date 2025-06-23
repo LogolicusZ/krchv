@@ -136,7 +136,7 @@
           <tr>
             {#each columns as col}
               <td class="p-4 text-left text-sm font-medium">
-                {#if row[col] === undefined || row[col] === null}
+                {#if row[col] === undefined || row[col] === null || row[col] === ""}
                   &mdash;
                 {:else if data.type === "keyboards" && col === "name" && row[col] != null}
                   <a href="/keyboard/{row.id}">
