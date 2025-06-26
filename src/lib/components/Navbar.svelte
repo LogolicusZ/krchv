@@ -9,7 +9,7 @@
     { name: "Keyboards", path: "keyboards" },
     { name: "Keycaps", path: "keycaps" },
     { name: "Switches", path: "switches" },
-    { name: "Designers", path: "designers" },
+    // { name: "Designers", path: "designers" },
   ];
 
   // Add state to track if sidebar is open
@@ -83,10 +83,7 @@
   <div class="mt-auto flex flex-col">
     <p class="text-sm uppercase opacity-50">Legal</p>
     <!-- <a class="text-base-content unset-link no-underline hover:opacity-80" href="/">Home</a> -->
-    <a class="text-base-content unset-link no-underline hover:opacity-80" href="/" onclick={toggleOffSidebar}>
-      Imprint
-    </a>
-    <a class="text-base-content unset-link mb-6 no-underline hover:opacity-80" href="/" onclick={toggleOffSidebar}>
+    <a class="text-base-content unset-link mb-6 no-underline hover:opacity-80" href="/legal/" onclick={toggleOffSidebar}>
       Privacy Policy
     </a>
     <p>&copy; 2025 LogolicusZ</p>
