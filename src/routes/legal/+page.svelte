@@ -3,91 +3,72 @@
   <meta name="description" content="A collection of legal documents for krchv.logolicusz.com." />
 </svelte:head>
 
-<div class="min-h-screen py-12 px-4">
-  <div class="max-w-3xl mx-auto p-8">
-    <h1 class="text-4xl font-extrabold text-center text-primary mb-8 tracking-tight">Legal</h1>
-    <div class="prose prose-lg prose-a:text-primary prose-a:underline hover:prose-a:text-primary/80 prose-li:[&_.contains-task-list]:list-none dark:prose-invert">
-      <h2 class="border-b border-primary/20 pb-1 mb-4 mt-0">Privacy Policy</h2>
-      <h3 id="introduction" class="mt-8">Introduction</h3>
+<div class="min-h-screen px-4 py-12 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-3xl p-4 sm:p-6 lg:p-8">
+    <div
+      class="prose-a:underline">
+      <h2 class="border-primary/50 mt-0 mb-4 border-b pb-1 text-lg font-bold">Privacy Policy</h2>
+
       <p>
-        Welcome to my website! As a privacy-conscious individual myself, I'm dedicated to protecting your privacy and ensuring
-        that your personal information is handled in a safe and responsible manner. This privacy policy outlines how I
-        collect, use, and protect your data when you browse <span class="font-mono text-primary">stelian.net</span>.
+        Welcome to my website! As someone who values privacy, I am committed to safeguarding your personal information
+        and ensuring it is handled securely and responsibly. This privacy policy explains what data is collected, how it
+        is used, and the measures taken to protect your information when you visit krchv.
       </p>
       <p>
-        If you have any questions or concerns about this policy, please contact me
-        <span><a href="/about#contact">here</a>.</span>
+        If you have any questions or concerns about this policy, please contact me at
+        <span class="text-primary">logolicusz@gmail.com</span>
       </p>
-      <h3 id="functionality" class="mt-8">Functionality</h3>
+
+      <h2 id="analytics" class="mt-8 text-lg font-bold">Analytics</h2>
       <p>
-        For some website functionalities, such as this website's dark mode switcher, I store your preferences in your
-        browser's
-        <span
-          class="help cursor-pointer underline decoration-dotted decoration-primary"
-          data-tip="Local storage saves website data on your device, similar to but different from cookies. It persists after closing the browser and doesn't automatically send data to servers with each request, unlike cookies.">
-          local storage
-        </span>.
-        Here is an example as to how the dark mode preference might be saved:
+        When you visit any page on this website, a small piece of data is collected and sent to a
+        <a href="https://plausible.io" target="_blank" rel="nofollow noopener noreferrer">Plausible instance</a>
+        hosted by
+        <a href="https://lunivity.com">lunivity.com</a>
+        .
       </p>
-      <pre class="bg-gray-100 text-base-content rounded-md p-4 overflow-x-auto text-sm font-mono">"theme": "portfolioDark"</pre>
-      <p>Any information stored like this stays on your device, and never gets sent to my server.</p>
-      <p>
-        Some blog pages might also have interactive content such as YouTube video embeds. By clicking 'play' on a video,
-        you accept
-        <a href="https://policies.google.com/privacy?hl=en" rel="nofollow noopener noreferrer">Google's Privacy Policy</a>.
-        If you do not wish to do so, do not click on YouTube video embeds on the blog.
-      </p>
-      <h3 id="analytics" class="mt-8">Analytics</h3>
-      <p>
-        When you visit any page on this website, a small piece of data is collected and sent to my
-        <span
-          class="help cursor-pointer underline decoration-dotted decoration-primary"
-          data-tip="Self-hosting means that I am in control of the software. It runs on my own servers in Europe.">
-          self-hosted
-        </span>
-        <a href="https://plausible.io" target="_blank" rel="nofollow noopener noreferrer">Plausible</a>
-        instance.
-        <br />
-        It's important to note that:
-      </p>
-      <ul class="!list-disc ml-6">
+      <p>It's important to note that:</p>
+      <ul class="ml-5 !list-disc sm:ml-6">
         <li>No personal information is collected</li>
         <li>No cookies used for analytics are stored in the browser</li>
-        <li>No information is shared with, sent to or sold to third-parties</li>
+        <li>No information is shared with, sent to, or sold to third-parties</li>
         <li>No information is shared with advertising companies</li>
-        <li>No information is mined and harvested for personal and behavioral trends</li>
+        <li>No information is mined or harvested for personal and behavioral trends</li>
         <li>No information is monetized</li>
       </ul>
       <p>
-        I run the Plausible Analytics script to collect some anonymous usage data for statistical purposes. The goal is to
-        track overall trends in my website traffic, it is not to track individual visitors. All the data is in aggregate
-        only.
-        <span class="font-semibold text-primary">Absolutely no personal data is collected for analytics.</span>
+        I run the Plausible Analytics script to collect some anonymous usage data for statistical purposes. The goal is
+        to track overall trends in my website traffic—not individual visitors.
+        <span class="text-primary font-semibold">Absolutely no personal data is collected for analytics.</span>
       </p>
       <p>
-        Data collected includes referral sources, top pages, visit duration, information from the devices (device type,
-        operating system, country and browser) used during the visit and more. You can see full details in Plausible's
-        <a href="https://plausible.io/data-policy" target="_blank" rel="nofollow noopener noreferrer">data policy</a>.
+        Data collected includes referral sources, top pages, visit duration, device type, OS, country, browser, etc. See
+        <a href="https://plausible.io/data-policy" target="_blank" rel="nofollow noopener noreferrer">
+          Plausible's data policy
+        </a>
+        .
       </p>
-      <h3 id="general-log-collection" class="mt-8">General Log Collection</h3>
-      <p>When you visit my website, the webserver automatically logs the following information:</p>
-      <ul class="!list-disc ml-6">
+
+      <h2 id="general-log-collection" class="mt-8 text-lg font-bold">General Log Collection</h2>
+      <p>
+        This website is hosted on GitHub Pages. As the site owner, I do <strong>not</strong>
+         collect or have access to any server logs or personal info about your visit.
+      </p>
+      <p>However, GitHub may automatically collect certain technical data such as:</p>
+      <ul class="ml-5 !list-disc sm:ml-6">
         <li>IP addresses</li>
-        <li>User agents</li>
-        <li>Request paths</li>
-        <li>Times of requests</li>
+        <li>Browser type and version</li>
+        <li>Referring site</li>
+        <li>Time of visit</li>
+        <li>Pages visited</li>
+        <li>Operating system</li>
       </ul>
       <p>
-        I've set the logs to
-        <span
-          class="help cursor-pointer underline decoration-dotted decoration-primary"
-          data-tip="Technical term for cycling old files, to flush old data.">
-          roll
-        </span>
-        every 72h or 100MB (whichever comes first), after which, the file gets deleted. If you wish for me to delete your information,
-        please contact me
-        <span><a href="/about#contact">here</a>.</span>
-        The information is solely used for debugging and to prevent bot attacks.
+        This data is collected and processed by GitHub. I do not have access to it. See the
+        <a href="https://docs.github.com/privacy" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>
+        . Questions? Email me at
+        <span class="text-primary">logolicusz@gmail.com</span>
+        .
       </p>
     </div>
   </div>
