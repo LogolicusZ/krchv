@@ -40,7 +40,6 @@ export async function load({ params }: { params: Params }) {
           : undefined;
 
       return {
-        id: id,
         name: yaml?.name,
         designer: designer,
         material: yaml?.material,
@@ -51,20 +50,17 @@ export async function load({ params }: { params: Params }) {
       } as Keyboard;
     } else if (table === "designers") {
       return {
-        id: id,
         name: yaml?.name,
         url: yaml?.url,
         picture: yaml?.picture,
       } as Designer;
     } else if (table === "keycaps") {
       return {
-        id: id,
         name: yaml?.name,
         url: yaml?.url,
       } as Keycap;
     } else if (table === "switches") {
       return {
-        id: id,
         name: yaml?.name,
         url: yaml?.url,
       } as Switches;
