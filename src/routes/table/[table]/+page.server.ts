@@ -16,6 +16,20 @@ async function loadReferencedYaml(folder: string, ref: string | string[] | undef
   return ref; // if it's already an object, just return it
 }
 
+export async function entries() {
+  const tables = ["keyboards", "designers", "keycaps", "switches"];
+  const routes = [];
+
+  for (const table of tables) {
+    const ids = await getAllYamlIds(table);
+    for (const id of ids) {
+      routes.push({ table });
+    }
+  }
+
+  return routes;
+}
+
 export async function load({ params }: { params: Params }) {
   const table = params.table;
   const yamlIds = await getAllYamlIds(table);
