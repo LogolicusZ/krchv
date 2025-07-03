@@ -30,14 +30,14 @@ interface Material {
 interface Keycap {
   id: string;
   name: string;
-  url: string;
+  kits: string;
 }
 
 // switches type
 interface Switches {
   id: string;
   name: string;
-  url: string;
+  amount: string;
 }
 
 // images array type

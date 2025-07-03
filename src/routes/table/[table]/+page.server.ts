@@ -57,12 +57,12 @@ export async function load({ params }: { params: Params }) {
     } else if (table === "keycaps") {
       return {
         name: yaml?.name,
-        url: yaml?.url,
+        kits: yaml?.kits,
       } as Keycap;
     } else if (table === "switches") {
       return {
         name: yaml?.name,
-        url: yaml?.url,
+        amount: yaml?.amount,
       } as Switches;
     }
     return null;

@@ -6,6 +6,10 @@
 
 <svelte:head>
   <title>krchv</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/img/Preview.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:image" content="/assets/img/Preview.png" />
 </svelte:head>
 
 <main class="flex h-dvh w-full overflow-hidden">
