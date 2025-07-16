@@ -10,8 +10,8 @@
   <meta property="og:url" content="https://krchv.logolicusz.com/" />
   <meta property="og:title" content="Home - krchv" />
   <meta property="og:description" content="Discover my collection and also all my keyboard pictures in one space!" />
-  <meta property="og:image" content="/assets/img/Preview.png" />
-  
+  <meta property="og:image" content="/assets/img/preview.png" />
+
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://krchv.logolicusz.com/" />
   <meta property="twitter:title" content="Home - krchv" />
