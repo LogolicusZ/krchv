@@ -50,8 +50,8 @@
     <tr>
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Keycaps</th>
       <td class="py-4 text-left text-sm font-medium">
-        {#if keyboard && keyboard.keycaps && keyboard.keycaps.url && keyboard.keycaps.name}
-          <a href={keyboard.keycaps.url}>{keyboard.keycaps.name}</a>
+        {#if keyboard && keyboard.keycaps && keyboard.keycaps.name}
+          <p>{keyboard.keycaps.name}</p>
         {:else if keyboard && keyboard.keycaps && keyboard.keycaps.name}
           <p>{keyboard.keycaps.name}</p>
         {:else}
@@ -62,9 +62,7 @@
     <tr>
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Switches</th>
       <td class="py-4 text-left text-sm font-medium">
-        {#if keyboard && keyboard.switches && keyboard.switches.url && keyboard.switches.name}
-          <a href={keyboard.switches.url}>{keyboard.switches.name}</a>
-        {:else if keyboard && keyboard.switches && keyboard.switches.name}
+        {#if keyboard && keyboard.switches && keyboard.switches.name}
           <p>{keyboard.switches.name}</p>
         {:else}
           <p>&mdash;</p>

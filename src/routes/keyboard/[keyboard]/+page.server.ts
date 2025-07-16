@@ -1,5 +1,5 @@
-import type { Designer, Images, Keyboard } from "$lib/types/keyboards";
-import { loadYamlFile } from "$lib/utils/yaml";
+import type { Designer, Image, Keyboard } from "$lib/types/keyboards";
+import { loadYamlFile, getAllYamlIds } from "$lib/utils/yaml";
 import { error } from "@sveltejs/kit";
 import fs from "fs";
 import path from "path";
@@ -11,13 +11,24 @@ interface Params {
 
 export const prerender = true; // force prerendering for this route
 
+// make sure page is prerenderable
+
+/** @type {import('./$types').EntryGenerator} */
+export async function entries() {
+  const ids = await getAllYamlIds("keyboards");
+
+  return ids.map((id) => ({ keyboard: id }));
+}
+
+// main logic
+
 export async function load({ params }: { params: Params }) {
   const keyboardId = params.keyboard;
 
   try {
     // load the keyboard data
     const keyboardData = (await loadYamlFile(`keyboards/${keyboardId}`)) as Keyboard;
-    let images: Images[] = [];
+    let images: Image[] = [];
 
     if (!keyboardData) {
       throw error(404, `Keyboard ${keyboardId} not found`);

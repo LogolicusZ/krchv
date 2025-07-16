@@ -45,7 +45,7 @@
   <div>
     <p class="text-sm uppercase opacity-50">Keyboards</p>
     <ul>
-      {#each keyboards as k}
+      {#each keyboards.slice(0, 4) as k}
         <li>
           <a
             class="text-base-content unset-link no-underline hover:opacity-80"
@@ -83,7 +83,10 @@
   <div class="mt-auto flex flex-col">
     <p class="text-sm uppercase opacity-50">Legal</p>
     <!-- <a class="text-base-content unset-link no-underline hover:opacity-80" href="/">Home</a> -->
-    <a class="text-base-content unset-link mb-6 no-underline hover:opacity-80" href="/legal/" onclick={toggleOffSidebar}>
+    <a
+      class="text-base-content unset-link mb-6 no-underline hover:opacity-80"
+      href="/legal/"
+      onclick={toggleOffSidebar}>
       Privacy Policy
     </a>
     <p>&copy; 2025 LogolicusZ</p>

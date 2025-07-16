@@ -1,31 +1,30 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import { fileURLToPath } from "url";
 // import type { Designer, Keyboard } from "$lib/types/keyboards";
 
 /**
- * Loads a YAML file from the src/assets directory
+ * Loads a YAML file from the static/assets/data directory
  * @param filename - The name of the YAML file (with or without extension)
  * @returns The parsed YAML content as a JavaScript object
  */
 export async function loadYamlFile(filename: string): Promise<any> {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const assetsDir = path.resolve(__dirname, "../../assets");
+  // Point to the top-level static folder, regardless of file
+  const assetsDir = path.resolve(process.cwd(), "src/assets");
 
-  // Check if filename has any extension at all
+  // Add extension if missing
   if (!path.extname(filename)) {
     const baseName = filename;
     const yamlPath = path.join(assetsDir, `${baseName}.yaml`);
     const ymlPath = path.join(assetsDir, `${baseName}.yml`);
 
-    // Check for existence of both extensions
     const yamlExists = fs.existsSync(yamlPath);
     const ymlExists = fs.existsSync(ymlPath);
 
     if (yamlExists && ymlExists) {
       throw new Error(`Both ${baseName}.yml and ${baseName}.yaml exist!`);
     }
+
     filename = ymlExists ? `${baseName}.yml` : `${baseName}.yaml`;
   }
 
@@ -40,31 +39,21 @@ export async function loadYamlFile(filename: string): Promise<any> {
 }
 
 /**
- * Gets all keyboard IDs by reading files in the assets directory
- * @argument dir (type: string): the directory to get the ids from
- * @returns Array of keyboard IDs (filenames without extensions)
+ * Gets all YAML file IDs (filenames without extension) from static/assets/data/<dir>
+ * @param dir - Subdirectory inside static/assets/data (e.g., "keyboards", "designers")
+ * @returns Array of file base names without extension
  */
 export async function getAllYamlIds(dir: string): Promise<string[]> {
   try {
-    const __dirname = path.dirname(fileURLToPath(import.meta.url)); // get the directory of the current module
+    const assetsDir = path.resolve(process.cwd(), `src/assets/${dir}`);
 
-    // construct the absolute path to the assets directory
-    const assetsDir = path.resolve(__dirname, `../../assets/${dir}`);
-
-    // read all files in the directory
     const files = fs.readdirSync(assetsDir);
 
-    // filter for yaml files and remove extensions to get keyboard IDs
-    const keyboardIds = files
+    return files
       .filter((file) => file.endsWith(".yml") || file.endsWith(".yaml"))
-      .map((file) => {
-        const extension = path.extname(file);
-        return path.basename(file, extension);
-      });
-
-    return keyboardIds;
+      .map((file) => path.basename(file, path.extname(file)));
   } catch (err) {
-    console.error("Error reading keyboard files:", err);
+    console.error("Error reading YAML files from:", dir, err);
     throw err;
   }
 }
