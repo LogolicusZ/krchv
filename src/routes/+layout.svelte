@@ -16,7 +16,7 @@
   <meta property="twitter:url" content="https://krchv.logolicusz.com/" />
   <meta property="twitter:title" content="Home - krchv" />
   <meta property="twitter:description" content="Discover my collection and also all my keyboard pictures in one space!" />
-  <meta property="twitter:image" content="/assets/img/Preview.png" />
+  <meta property="twitter:image" content="/assets/img/preview.png" />
 </svelte:head>
 
 <main class="flex h-dvh w-full overflow-hidden">
