@@ -19,7 +19,7 @@
       .
     </p>
 
-    <h2 id="analytics" class="mt-8 text-lg font-bold">Analytics</h2>
+    <h2 id="analytics" class="mt-8 mb-2 text-lg font-bold">Analytics</h2>
     <p>
       When you visit any page on this website, a small piece of data is collected and sent to a
       <a href="https://plausible.io" target="_blank" rel="nofollow noopener noreferrer">Plausible instance</a>
@@ -49,7 +49,7 @@
       .
     </p>
 
-    <h2 id="general-log-collection" class="mt-8 text-lg font-bold">General Log Collection</h2>
+    <h2 id="general-log-collection" class="mt-8 mb-2 text-lg font-bold">General Log Collection</h2>
     <p>
       This website is hosted on GitHub Pages. As the site owner, I do <strong>not</strong>
       collect or have access to any server logs or personal info about your visit.
