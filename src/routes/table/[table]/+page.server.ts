@@ -40,6 +40,7 @@ export async function load({ params }: { params: Params }) {
           : undefined;
 
       return {
+        id: yaml?.id,
         name: yaml?.name,
         designer: designer,
         material: yaml?.material,
