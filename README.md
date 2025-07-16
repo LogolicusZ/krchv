@@ -3,6 +3,8 @@
 Or, Keyboard Archive.\
 Pronounced: "Kay-Archive".
 
+![screenshot of the website](./.docs/screenshot.png)
+
 ## Why does this exist?
 
 I want to have a space dedicated to one of my favorite hobbies which also acts as an archive in case I lose the original files. Additionally, I want to be less dependent on other services like Instagram (for image storage) and Notion (storage database of current items that I own).
