@@ -1,0 +1,23 @@
+---
+id: noxary280s
+name: Noxary 280 s
+designer: xondat
+material:
+  color: "#7393B3"
+  finish: Anodized Blue Gray
+keycaps:
+  id: hineybeige
+  name: GMK Hineybeige
+switches:
+  id: gatx
+  name: Gateron X
+status: collection
+notes: |
+  5mm PC plate, Half PC plate
+images:
+  - src: /assets/img/keyboards/file_1.avif
+  - src: /assets/img/keyboards/file_2.avif
+  - src: /assets/img/keyboards/file_3.avif
+  - src: /assets/img/keyboards/file_4.avif
+  - src: /assets/img/keyboards/file_5.avif
+  - src: /assets/img/keyboards/file_6.avif

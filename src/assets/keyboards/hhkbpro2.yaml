@@ -1,0 +1,18 @@
+---
+id: hhkbpro2
+name: HHKB pro 2
+designer: hhkeyboard
+material:
+  color: "#000000"
+  finish: Black
+keycaps:
+  id: toprestock
+  name: Stock
+switches:
+  id: Topre
+  name: Topre
+status: collection
+notes: |
+
+images:
+  - src: /assets/img/keyboards/hhkbpro2/DSC1919.avif

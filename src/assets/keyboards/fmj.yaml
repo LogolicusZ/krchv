@@ -6,13 +6,18 @@ material:
   color: "#e7ecef"
   finish: Anodized Silver
 keycaps:
-  id: 
-  name: 
+  id:
+  name:
 switches:
   id: mx-black
   name: MX Blacks L+F
-status: OTW
+status: Traded for Noxary 280s
 notes: |
   Full and Halfplate
 images:
-
+  - src: /assets/img/keyboards/fmj/DSC01804.avif
+  - src: /assets/img/keyboards/fmj/DSC01800.avif
+  - src: /assets/img/keyboards/fmj/DSC01801.avif
+  - src: /assets/img/keyboards/fmj/DSC01802.avif
+  - src: /assets/img/keyboards/fmj/DSC01803.avif
+  - src: /assets/img/keyboards/fmj/DSC01805.avif

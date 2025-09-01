@@ -11,11 +11,11 @@ keycaps:
 switches:
   id:
   name:
-status: WTS
+status: Traded for HHKB pro 2
 notes: |
 
 images:
-- src: /assets/img/keyboards/martingale/file_346.avif
-- src: /assets/img/keyboards/martingale/file_348.avif
-- src: /assets/img/keyboards/martingale/file_349.avif
-- src: /assets/img/keyboards/martingale/file_350.avif
+  - src: /assets/img/keyboards/martingale/file_346.avif
+  - src: /assets/img/keyboards/martingale/file_348.avif
+  - src: /assets/img/keyboards/martingale/file_349.avif
+  - src: /assets/img/keyboards/martingale/file_350.avif

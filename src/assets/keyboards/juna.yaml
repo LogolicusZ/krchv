@@ -17,6 +17,7 @@ notes: |
 status: collection
 soundtest: ecSe1rN2bko
 images:
+  - src: /assets/img/keyboards/juna/DSC_68.avif
   - src: /assets/img/keyboards/juna/DSC_55.avif
   - src: /assets/img/keyboards/juna/DSC_12.avif
   - src: /assets/img/keyboards/juna/DSC_16.avif
@@ -35,3 +36,8 @@ images:
   - src: /assets/img/keyboards/juna/DSC_61.avif
   - src: /assets/img/keyboards/juna/DSC_62.avif
   - src: /assets/img/keyboards/juna/DSC_63.avif
+  - src: /assets/img/keyboards/juna/DSC_64.avif
+  - src: /assets/img/keyboards/juna/DSC_65.avif
+  - src: /assets/img/keyboards/juna/DSC_66.avif
+  - src: /assets/img/keyboards/juna/DSC_67.avif
+  - src: /assets/img/keyboards/juna/DSC_69.avif
