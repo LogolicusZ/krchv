@@ -15,9 +15,9 @@ status: collection
 notes: |
   5mm PC plate, Half PC plate
 images:
-  - src: /assets/img/keyboards/file_1.avif
-  - src: /assets/img/keyboards/file_2.avif
-  - src: /assets/img/keyboards/file_3.avif
-  - src: /assets/img/keyboards/file_4.avif
-  - src: /assets/img/keyboards/file_5.avif
-  - src: /assets/img/keyboards/file_6.avif
+  - src: /assets/img/keyboards/noxary280s/file_6.avif
+  - src: /assets/img/keyboards/noxary280s/file_5.avif
+  - src: /assets/img/keyboards/noxary280s/file_1.avif
+  - src: /assets/img/keyboards/noxary280s/file_2.avif
+  - src: /assets/img/keyboards/noxary280s/file_3.avif
+  - src: /assets/img/keyboards/noxary280s/file_4.avif
