@@ -9,7 +9,7 @@ keycaps:
   id: toprestock
   name: Stock
 switches:
-  id: Topre
+  id: topre
   name: Topre
 status: collection
 notes: |
