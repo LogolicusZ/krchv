@@ -1,0 +1,30 @@
+---
+id: juna2
+name: Juna v1.5
+designer: logolicusz
+material:
+  color: "#9BE3BF"
+  finish: Anodized Mint
+keycaps:
+  id: hineybeige
+  name: GMK Hineybeige
+switches:
+  id: mx-orange
+  name: MX Oranges L+F
+notes: |
+  FR4 pcb
+  Alu plate
+status: collection
+soundtest: 
+images:
+  - src: /assets/img/keyboards/juna_v1.5/file_10.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_6.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_7.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_8.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_9.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_11.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_12.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_13.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_14.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_15.avif
+  - src: /assets/img/keyboards/juna_v1.5/file_4.avif
