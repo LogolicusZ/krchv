@@ -56,7 +56,7 @@
     {/if}
 
     {#if data.images.length > 1}
-      <div class="w-[min(calc(3*18rem+4*1rem),90%)] columns-[3_18rem] gap-4">
+      <div class="min-w-[min(calc(3*18rem+4*1rem),100%)] columns-[3_18rem] gap-4">
         {#each data.images.slice(1) as image}
           <a href={image.src} data-pswp-width={image.width} data-pswp-height={image.height} target="_blank">
             <img
