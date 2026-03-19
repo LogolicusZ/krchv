@@ -1,0 +1,25 @@
+---
+id: oc
+name: Ocho Cuatro 2.1
+designer: Daji
+material:
+  color: "#a7ded0"
+  finish: Anodized Seafoam
+keycaps:
+  id: hineybeige
+  name: GMK Hineybeige
+switches:
+  id: mx-brown
+  name: MX Browns 
+status: collection
+notes: |
+  Alu Plate
+  PC Plate 
+images:
+  - src: /assets/img/keyboards/oc/file_1.avif
+  - src: /assets/img/keyboards/oc/file_2.avif
+  - src: /assets/img/keyboards/oc/file_3.avif
+  - src: /assets/img/keyboards/oc/file_4.avif
+  - src: /assets/img/keyboards/oc/file_6.avif
+  - src: /assets/img/keyboards/oc/file_7.avif
+
