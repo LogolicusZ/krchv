@@ -2,6 +2,9 @@
   import Gallery from "$lib/components/Gallery.svelte";
   import { error } from "@sveltejs/kit";
   import { sanitizeHtml } from "$lib/utils";
+  import { fly } from "svelte/transition";
+  import { cubicOut } from "svelte/easing";
+  import { motionSafe } from "$lib/utils/motion.svelte";
 
   let { data } = $props();
 
@@ -15,12 +18,16 @@
 </script>
 
 <svelte:head>
-  <title>{keyboard?.name + " - krchv" || "krchv"}</title>
+  <title>{keyboard?.name ? keyboard.name + " - krchv" : "krchv"}</title>
 </svelte:head>
 
-<h1 class="font-daydream text-4xl">{keyboard?.name}</h1>
+<h1 class="font-daydream text-4xl" in:fly|global={motionSafe({ y: 12, duration: 450, easing: cubicOut })}>
+  {keyboard?.name}
+</h1>
 
-<table class="mt-4 w-full table-fixed border-collapse lg:w-[32rem]">
+<table
+  class="mt-4 w-full table-fixed border-collapse lg:w-[32rem]"
+  in:fly|global={motionSafe({ y: 12, duration: 450, delay: 100, easing: cubicOut })}>
   <tbody class="divide-y divide-gray-200">
     <tr>
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Designer</th>
@@ -51,8 +58,6 @@
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Keycaps</th>
       <td class="py-4 text-left text-sm font-medium">
         {#if keyboard && keyboard.keycaps && keyboard.keycaps.name}
-          <p>{keyboard.keycaps.name}</p>
-        {:else if keyboard && keyboard.keycaps && keyboard.keycaps.name}
           <p>{keyboard.keycaps.name}</p>
         {:else}
           <p>&mdash;</p>

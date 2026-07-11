@@ -69,15 +69,14 @@ export async function load({ params }: { params: Params }) {
     return null;
   }
 
-  // Load and normalize all data
-  const data = [];
-  for (const id of yamlIds) {
-    const yaml = await loadYamlFile(`${table}/${id}`);
-    const normalized = await normalizeData(table, yaml, id);
-    if (normalized) {
-      data.push(normalized);
-    }
-  }
+  // Load and normalize all data in parallel
+  const normalized = await Promise.all(
+    yamlIds.map(async (id) => {
+      const yaml = await loadYamlFile(`${table}/${id}`);
+      return normalizeData(table, yaml, id);
+    })
+  );
+  const data = normalized.filter((row) => row != null);
 
   return {
     tableData: data,

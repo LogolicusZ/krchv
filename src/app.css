@@ -41,3 +41,15 @@ body {
 a:not(.unset-link) {
   @apply text-link-primary cursor-pointer underline hover:brightness-[80%];
 }
+
+/* Honor reduced-motion for all CSS-driven transitions/animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -2,9 +2,12 @@
   import { capitalize } from "$lib/utils";
   import { ChevronUp, ChevronDown } from "lucide-svelte";
   import { sanitizeHtml } from "$lib/utils";
+  import { fly } from "svelte/transition";
+  import { cubicOut } from "svelte/easing";
+  import { motionSafe } from "$lib/utils/motion.svelte";
 
   // props
-  let { data } = $props<{ tableData: any[]; type: string }>();
+  let { data } = $props<{ data: { tableData: any[]; type: string } }>();
 
   // all columns and filtered columns
   let allColumns = $state<string[]>([]);
@@ -103,7 +106,7 @@
 </script>
 
 <svelte:head>
-  <title>{capitalize(data.type) + " - krchv" || "krchv"}</title>
+  <title>{data.type ? capitalize(data.type) + " - krchv" : "krchv"}</title>
 </svelte:head>
 
 <h1 class="font-daydream mb-8 text-4xl capitalize">{data.type}</h1>
@@ -119,12 +122,14 @@
               onclick={() => toggleSort(col)}>
               <span class="flex items-center space-x-1">
                 <span>{col}</span>
-                {#if sortColumn === col}
-                  {#if sortDirection === "asc"}
+                {#if sortColumn === col && sortDirection === "asc"}
+                  <span in:fly|global={motionSafe({ y: -4, duration: 180, easing: cubicOut })}>
                     <ChevronUp size="16" />
-                  {:else if sortDirection === "desc"}
+                  </span>
+                {:else if sortColumn === col && sortDirection === "desc"}
+                  <span in:fly|global={motionSafe({ y: 4, duration: 180, easing: cubicOut })}>
                     <ChevronDown size="16" />
-                  {/if}
+                  </span>
                 {/if}
               </span>
             </th>
@@ -133,7 +138,7 @@
       </thead>
       <tbody class="divide-y divide-gray-200">
         {#each sortedData as row}
-          <tr>
+          <tr class="hover:bg-primary/5 transition-colors duration-150">
             {#each columns as col}
               <td class="p-4 text-left text-sm font-medium">
                 {#if row[col] === undefined || row[col] === null || row[col] === ""}

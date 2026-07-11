@@ -1,16 +1,16 @@
 <script lang="ts">
   import { Search } from "lucide-svelte";
-  export let keyboards: { id: string; name: string }[] = [];
+  import { fly } from "svelte/transition";
+  import { cubicOut } from "svelte/easing";
+  import { motionSafe } from "$lib/utils/motion.svelte";
 
-  let query = "";
-  let results: typeof keyboards = [];
+  let { keyboards = [] }: { keyboards?: { id: string; name: string }[] } = $props();
 
-  function searchItems(q: string) {
-    results = keyboards.filter((kb) => kb.name?.toLowerCase().includes(q.toLowerCase()));
-  }
+  let query = $state("");
 
-  $: if (query) searchItems(query);
-  $: if (!query) results = [];
+  const results = $derived(
+    query ? keyboards.filter((kb) => kb.name?.toLowerCase().includes(query.toLowerCase())) : []
+  );
 </script>
 
 <div>
@@ -31,15 +31,19 @@
 
   {#if query}
     <ul class="mt-4 space-y-2 text-sm">
-      {#each results as kb}
-        <li class="flex border-b border-gray-200 pb-1">
+      {#each results as kb, i (kb.id)}
+        <li
+          class="flex border-b border-gray-200 pb-1"
+          in:fly|global={motionSafe({ y: 6, duration: 200, delay: i * 25, easing: cubicOut })}>
           <a class="text-base-content unset-link w-full no-underline hover:opacity-80" href={`/keyboard/${kb.id}`}>
             {kb.name}
           </a>
         </li>
       {/each}
       {#if results.length === 0}
-        <li class="text-gray-400">No results found.</li>
+        <li class="text-gray-400" in:fly|global={motionSafe({ y: 6, duration: 200, easing: cubicOut })}>
+          No results found.
+        </li>
       {/if}
     </ul>
   {/if}

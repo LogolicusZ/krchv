@@ -1,9 +1,7 @@
 import type { Designer, Image, Keyboard } from "$lib/types/keyboards";
 import { loadYamlFile, getAllYamlIds } from "$lib/utils/yaml";
+import { resolveImageDimensions } from "$lib/server/images";
 import { error } from "@sveltejs/kit";
-import fs from "fs";
-import path from "path";
-import sizeOf from "image-size";
 
 interface Params {
   keyboard: string;
@@ -28,32 +26,13 @@ export async function load({ params }: { params: Params }) {
   try {
     // load the keyboard data
     const keyboardData = (await loadYamlFile(`keyboards/${keyboardId}`)) as Keyboard;
-    let images: Image[] = [];
 
     if (!keyboardData) {
       throw error(404, `Keyboard ${keyboardId} not found`);
     }
 
     // process images with dimensions
-    if (keyboardData?.images) {
-      images = keyboardData.images.map((img) => {
-        const imgPath = path.join(process.cwd(), "static", img.src);
-
-        try {
-          const imgBuffer = fs.readFileSync(imgPath);
-          const dimensions = sizeOf(imgBuffer);
-
-          return {
-            ...img,
-            width: dimensions.width || 0,
-            height: dimensions.height || 0,
-          };
-        } catch (e) {
-          console.error(`Error processing image ${img.src}:`, e);
-          return { ...img, width: 0, height: 0 };
-        }
-      });
-    }
+    const images: Image[] = resolveImageDimensions(keyboardData?.images);
 
     try {
       // load the designer data

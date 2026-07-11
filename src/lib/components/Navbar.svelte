@@ -1,6 +1,8 @@
 <script lang="ts">
   import Search from "./Search.svelte";
   import { ChevronRight, Menu, X } from "lucide-svelte";
+  import { fade } from "svelte/transition";
+  import { motionSafe } from "$lib/utils/motion.svelte";
 
   let { data } = $props();
   const keyboards = data.keyboards;
@@ -31,6 +33,15 @@
   <Menu />
 </button>
 
+{#if sidebarOpen}
+  <button
+    aria-label="Close menu"
+    onclick={toggleOffSidebar}
+    transition:fade|global={motionSafe({ duration: 200 })}
+    class="fixed inset-0 z-40 cursor-default bg-black/40 md:hidden lg:hidden">
+  </button>
+{/if}
+
 <div
   class="bg-base-100 fixed top-0 left-0 z-50 flex h-full w-64 min-w-64 flex-col gap-6 overflow-x-visible overflow-y-clip p-12 shadow-lg transition-transform duration-300 ease-in-out md:static md:translate-x-0 md:shadow-none lg:static lg:translate-x-0 lg:shadow-none {sidebarOpen
     ? 'translate-x-0'
@@ -48,7 +59,7 @@
       {#each keyboards.slice(0, 4) as k}
         <li>
           <a
-            class="text-base-content unset-link no-underline hover:opacity-80"
+            class="text-base-content unset-link text-lg no-underline hover:opacity-80"
             href="/keyboard/{k.id}"
             onclick={toggleOffSidebar}>
             {k.name}
@@ -57,7 +68,7 @@
       {/each}
       <li>
         <a
-          class="unset-link flex items-center gap-1 opacity-65 hover:opacity-80"
+          class="unset-link flex items-center gap-1 text-lg opacity-65 hover:opacity-80"
           href="/table/keyboards"
           onclick={toggleOffSidebar}>
           <ChevronRight size="18" /> more...
@@ -71,7 +82,7 @@
       {#each databases as db}
         <li>
           <a
-            class="text-base-content unset-link no-underline hover:opacity-80"
+            class="text-base-content unset-link text-lg no-underline hover:opacity-80"
             href="/table/{db.path}"
             onclick={toggleOffSidebar}>
             {db.name}
@@ -80,11 +91,24 @@
       {/each}
     </ul>
   </div>
+  <div>
+    <p class="text-sm uppercase opacity-50">Browse</p>
+    <ul>
+      <li>
+        <a
+          class="text-base-content unset-link text-lg no-underline hover:opacity-80"
+          href="/gallery"
+          onclick={toggleOffSidebar}>
+          Gallery
+        </a>
+      </li>
+    </ul>
+  </div>
   <div class="mt-auto flex flex-col">
     <p class="text-sm uppercase opacity-50">Legal</p>
-    <!-- <a class="text-base-content unset-link no-underline hover:opacity-80" href="/">Home</a> -->
+    <!-- <a class="text-base-content unset-link text-lg no-underline hover:opacity-80" href="/">Home</a> -->
     <a
-      class="text-base-content unset-link mb-6 no-underline hover:opacity-80"
+      class="text-base-content unset-link mb-6 text-lg no-underline hover:opacity-80"
       href="/legal/"
       onclick={toggleOffSidebar}>
       Privacy Policy
