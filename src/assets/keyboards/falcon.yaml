@@ -1,0 +1,23 @@
+---
+id: falcon
+name: 6XV 2.0 Falcon
+designer: Matrix
+material:
+  color: "#000000"
+  finish: Starry Night Coat
+keycaps:
+  id: dolch-r5
+  name: GMK Dolch R5 + OG Extensions
+switches:
+  id: mx-black
+  name: MX Blacks
+status: collection
+notes: |
+  Alu Plate
+images:
+  - src: /assets/img/keyboards/6xvfalcon/falcon-01.avif
+  - src: /assets/img/keyboards/6xvfalcon/falcon-02.avif
+  - src: /assets/img/keyboards/6xvfalcon/falcon-03.avif
+  - src: /assets/img/keyboards/6xvfalcon/falcon-04.avif
+  - src: /assets/img/keyboards/6xvfalcon/falcon-05.avif
+
