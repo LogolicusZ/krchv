@@ -1,5 +1,5 @@
 import { getAllYamlIds, loadYamlFile } from "$lib/utils/yaml";
-import type { Keyboard, Designer, Keycap, Switches } from "$lib/types/keyboards";
+import type { Keyboard, Artisan, Designer, Keycap, Switches } from "$lib/types/keyboards";
 
 interface Params {
   table: string;
@@ -24,7 +24,7 @@ export async function load({ params }: { params: Params }) {
     table: string,
     yaml,
     id: string
-  ): Promise<Keyboard | Designer | Keycap | Switches | null> {
+  ): Promise<Keyboard | Artisan | Designer | Keycap | Switches | null> {
     if (table === "keyboards") {
       // load referenced objects
       const designer = yaml?.designer ? await loadYamlFile(`designers/${yaml.designer}`) : undefined;
@@ -49,6 +49,16 @@ export async function load({ params }: { params: Params }) {
         notes: yaml?.notes ?? "",
         status: yaml?.status ?? "",
       } as Keyboard;
+    } else if (table === "artisans") {
+      return {
+        id: yaml?.id,
+        name: yaml?.name,
+        maker: yaml?.maker,
+        sculpt: yaml?.sculpt,
+        colorway: yaml?.colorway,
+        status: yaml?.status ?? "",
+        notes: yaml?.notes ?? "",
+      } as Artisan;
     } else if (table === "designers") {
       return {
         name: yaml?.name,

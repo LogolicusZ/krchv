@@ -33,7 +33,10 @@
 
     const colArray = Array.from(keys);
     allColumns = colArray;
-    columns = data.type === "keyboards" ? colArray.filter((c) => c !== "id") : colArray;
+    columns =
+      data.type === "keyboards" || data.type === "artisans"
+        ? colArray.filter((c) => c !== "id")
+        : colArray;
   });
 
   /**
@@ -145,6 +148,10 @@
                   &mdash;
                 {:else if data.type === "keyboards" && col === "name" && row[col] != null}
                   <a href="/keyboard/{row.id}">
+                    {row[col]}
+                  </a>
+                {:else if data.type === "artisans" && col === "name" && row[col] != null}
+                  <a href="/artisan/{row.id}">
                     {row[col]}
                   </a>
                 {:else if typeof row[col] === "string" && row[col].match(/\.(jpg|jpeg|png|gif|webp|avif)$/i)}

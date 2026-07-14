@@ -12,6 +12,18 @@ interface Keyboard {
   soundtest: string;
 }
 
+// artisan type
+interface Artisan {
+  id: string;
+  name: string;
+  maker: string;
+  sculpt: string;
+  colorway: string;
+  status: string;
+  notes: string;
+  images: Image[];
+}
+
 // designer type
 interface Designer {
   id: string;
@@ -49,4 +61,4 @@ interface Image {
 }
 
 // export interfaces as types
-export type { Keyboard, Designer, Material, Keycap, Switches, Image };
+export type { Keyboard, Artisan, Designer, Material, Keycap, Switches, Image };

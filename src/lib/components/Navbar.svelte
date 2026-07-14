@@ -9,6 +9,7 @@
 
   const databases = [
     { name: "Keyboards", path: "keyboards" },
+    { name: "Artisans", path: "artisans" },
     { name: "Keycaps", path: "keycaps" },
     { name: "Switches", path: "switches" },
     // { name: "Designers", path: "designers" },
