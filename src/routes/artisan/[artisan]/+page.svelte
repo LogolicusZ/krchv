@@ -1,5 +1,6 @@
 <script lang="ts">
   import Gallery from "$lib/components/Gallery.svelte";
+  import Status from "$lib/components/Status.svelte";
   import { error } from "@sveltejs/kit";
   import { sanitizeHtml } from "$lib/utils";
   import { fly } from "svelte/transition";
@@ -61,11 +62,7 @@
     <tr>
       <th class="p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50">Status</th>
       <td class="py-4 text-left text-sm font-medium">
-        {#if artisan.status}
-          <p>{artisan.status}</p>
-        {:else}
-          <p>&mdash;</p>
-        {/if}
+        <Status status={artisan.status} />
       </td>
     </tr>
     <tr>

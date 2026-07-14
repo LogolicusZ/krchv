@@ -1,5 +1,6 @@
 <script lang="ts">
   import { capitalize } from "$lib/utils";
+  import Status from "$lib/components/Status.svelte";
   import { ChevronUp, ChevronDown } from "lucide-svelte";
   import { sanitizeHtml } from "$lib/utils";
   import { fly } from "svelte/transition";
@@ -154,6 +155,8 @@
                   <a href="/artisan/{row.id}">
                     {row[col]}
                   </a>
+                {:else if col === "status" && typeof row[col] === "string"}
+                  <Status status={row[col]} />
                 {:else if typeof row[col] === "string" && row[col].match(/\.(jpg|jpeg|png|gif|webp|avif)$/i)}
                   <img src={row[col]} alt="avatar" class="h-8 w-8 rounded object-cover" />
                 {:else if typeof row[col] === "string" && row[col].startsWith("http")}
