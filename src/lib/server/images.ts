@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import sizeOf from "image-size";
+import { readImageDimensions } from "$lib/server/imageDimensions";
 import type { Image } from "$lib/types/keyboards";
 
 /**
@@ -15,7 +15,7 @@ export function resolveImageDimensions(images: Image[] | undefined): Image[] {
     const imgPath = path.join(process.cwd(), "static", img.src);
 
     try {
-      const dimensions = sizeOf(fs.readFileSync(imgPath));
+      const dimensions = readImageDimensions(fs.readFileSync(imgPath));
       return { ...img, width: dimensions.width || 0, height: dimensions.height || 0 };
     } catch (e) {
       console.error(`Error processing image ${img.src}:`, e);
