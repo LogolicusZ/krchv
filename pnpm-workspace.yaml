@@ -8,6 +8,9 @@ allowBuilds:
 onlyBuiltDependencies:
   - "@tailwindcss/oxide"
   - esbuild
+# Disable pnpm 11's default minimum release age gate, which rejects freshly
+# published lockfile entries. pnpm 11 reads it here; pnpm 10 reads .npmrc.
+minimumReleaseAge: 0
 overrides:
   "@eslint/eslintrc": 3.3.5
   dompurify: 3.4.11
