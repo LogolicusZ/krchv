@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import yaml from "js-yaml";
+import { load } from "js-yaml";
 // import type { Designer, Keyboard } from "$lib/types/keyboards";
 
 /**
@@ -31,7 +31,7 @@ export async function loadYamlFile(filename: string): Promise<any> {
   try {
     const filePath = path.join(assetsDir, filename);
     const fileContent = fs.readFileSync(filePath, "utf8");
-    return yaml.load(fileContent);
+    return load(fileContent);
   } catch (err) {
     console.error(`Error loading YAML file ${filename}:`, err);
     throw err;

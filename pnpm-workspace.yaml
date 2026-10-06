@@ -14,4 +14,5 @@ minimumReleaseAge: 0
 overrides:
   "@eslint/eslintrc": 3.3.5
   dompurify: 3.4.13
+  cookie: ^0.7.2
   postcss: 8.5.26
