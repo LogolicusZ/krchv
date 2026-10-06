@@ -14,13 +14,12 @@
   let allColumns = $state<string[]>([]);
   let columns = $state<string[]>([]);
 
-  // sorting state
-  let sortColumn = $state<string | number>(0);
-  let sortDirection = $state<"asc" | "desc" | null>(null);
+  // sorting state, kept per table so each table sorts on its own
+  type Sort = { column: string | null; direction: "asc" | "desc" | null };
+  let sorts = $state<Record<string, Sort>>({});
 
   // data buffers
   let originalData = $state<any[]>([]);
-  let sortedData = $state<any[]>([]);
 
   // set up originalData + columns on data change
   $effect(() => {
@@ -68,16 +67,17 @@
     return String(val).toLowerCase();
   }
 
-  // compute sortedData on data or sort change
-  $effect(() => {
-    if (!sortColumn || !sortDirection) {
-      sortedData = originalData;
-      return;
-    }
+  /**
+   * Sort rows by the current sort state of the given table.
+   */
+  function sortRows(rows: any[], table: string): any[] {
+    const column = sorts[table]?.column;
+    const direction = sorts[table]?.direction;
+    if (!column || !direction) return rows;
 
-    sortedData = originalData.slice().sort((a, b) => {
-      const aRaw = a[sortColumn],
-        bRaw = b[sortColumn];
+    return rows.slice().sort((a, b) => {
+      const aRaw = a[column],
+        bRaw = b[column];
       const aKey = getSortKey(aRaw),
         bKey = getSortKey(bRaw);
 
@@ -86,25 +86,38 @@
       if (bKey == null) return -1;
 
       if (typeof aKey === "number" && typeof bKey === "number") {
-        return sortDirection === "asc" ? aKey - bKey : bKey - aKey;
+        return direction === "asc" ? aKey - bKey : bKey - aKey;
       }
 
       const aStr = String(aKey),
         bStr = String(bKey);
-      return sortDirection === "asc" ? aStr.localeCompare(bStr) : bStr.localeCompare(aStr);
+      return direction === "asc" ? aStr.localeCompare(bStr) : bStr.localeCompare(aStr);
     });
-  });
+  }
+
+  // keyboards are split into the current collection and those sold / traded away
+  const splitByStatus = $derived(data.type === "keyboards");
+
+  function isGone(row: any): boolean {
+    const s = String(row?.status ?? "")
+      .trim()
+      .toLowerCase();
+    return s.startsWith("sold") || s.startsWith("traded");
+  }
+
+  const allData = $derived(sortRows(originalData, "all"));
+  const collectionData = $derived(sortRows(originalData.filter((row) => !isGone(row)), "collection"));
+  const goneData = $derived(sortRows(originalData.filter((row) => isGone(row)), "gone"));
 
   // onclick cycle: default → asc → desc
-  function toggleSort(col: string) {
-    if (sortColumn !== col) {
-      sortColumn = col;
-      sortDirection = "asc";
-    } else if (sortDirection === "asc") {
-      sortDirection = "desc";
+  function toggleSort(table: string, col: string) {
+    const sort = sorts[table];
+    if (sort?.column !== col) {
+      sorts[table] = { column: col, direction: "asc" };
+    } else if (sort.direction === "asc") {
+      sorts[table] = { column: col, direction: "desc" };
     } else {
-      sortColumn = 0;
-      sortDirection = null;
+      sorts[table] = { column: null, direction: null };
     }
   }
 </script>
@@ -115,22 +128,22 @@
 
 <h1 class="font-daydream mb-8 text-4xl capitalize">{data.type}</h1>
 
-<div class="overflow-auto">
-  {#if sortedData && sortedData.length > 0}
+{#snippet dataTable(table: string, rows: any[])}
+  <div class="overflow-auto">
     <table class="mt-8 min-w-full table-fixed border-collapse">
       <thead>
         <tr>
           {#each columns as col}
             <th
               class="cursor-pointer p-4 text-left text-sm font-bold whitespace-nowrap uppercase opacity-50 select-none"
-              onclick={() => toggleSort(col)}>
+              onclick={() => toggleSort(table, col)}>
               <span class="flex items-center space-x-1">
                 <span>{col}</span>
-                {#if sortColumn === col && sortDirection === "asc"}
+                {#if sorts[table]?.column === col && sorts[table]?.direction === "asc"}
                   <span in:fly|global={motionSafe({ y: -4, duration: 180, easing: cubicOut })}>
                     <ChevronUp size="16" />
                   </span>
-                {:else if sortColumn === col && sortDirection === "desc"}
+                {:else if sorts[table]?.column === col && sorts[table]?.direction === "desc"}
                   <span in:fly|global={motionSafe({ y: 4, duration: 180, easing: cubicOut })}>
                     <ChevronDown size="16" />
                   </span>
@@ -141,7 +154,7 @@
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-200">
-        {#each sortedData as row}
+        {#each rows as row}
           <tr class="hover:bg-primary/5 transition-colors duration-150">
             {#each columns as col}
               <td class="p-4 text-left text-sm font-medium">
@@ -228,7 +241,20 @@
         {/each}
       </tbody>
     </table>
+  </div>
+{/snippet}
+
+{#if originalData.length > 0}
+  {#if splitByStatus}
+    {#if collectionData.length > 0}
+      {@render dataTable("collection", collectionData)}
+    {/if}
+    {#if goneData.length > 0}
+      {@render dataTable("gone", goneData)}
+    {/if}
   {:else}
-    <p>No data available.</p>
+    {@render dataTable("all", allData)}
   {/if}
-</div>
+{:else}
+  <p>No data available.</p>
+{/if}

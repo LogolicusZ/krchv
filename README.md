@@ -3,7 +3,7 @@
 Or, Keyboard Archive.\
 Pronounced: "Kay-Archive".
 
-![screenshot of the website](./.docs/screenshot.png)
+![screenshot of the website](./static/assets/img/krchv_screenshot.avif)
 
 ## Why does this exist?
 
