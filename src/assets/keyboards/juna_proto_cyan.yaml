@@ -1,0 +1,22 @@
+---
+id: juna_proto_cyan
+name: Juna Cyan Prototype
+designer: logolicusz
+material:
+  color: "#00BCE3"
+  finish: Anodized Cyan
+keycaps:
+  id: soware
+  name: GMK Soware R2
+switches:
+  id: mx-brown
+  name: MX Browns L+F
+notes: |
+  CF Plate
+status: collection
+soundtest: 
+images:
+  - src: /assets/img/keyboards/juna_proto_cyan/DSC05778.avif
+  - src: /assets/img/keyboards/juna_proto_cyan/DSC05711.avif
+  - src: /assets/img/keyboards/juna_proto_cyan/DSC05712.avif
+  - src: /assets/img/keyboards/juna_proto_cyan/DSC05738.avif

@@ -1,0 +1,20 @@
+---
+id: seven
+name: Seven
+designer: dnworks
+material:
+  color: "#800020"
+  finish: Anodized Burgundy
+keycaps:
+  id: burgundy
+  name: GMK Burgundy
+switches:
+  id: mx-black
+  name: MX Blacks L+F
+status: SOLD
+notes: |
+  Alu Plate
+images:
+  - src: /assets/img/keyboards/seven/DSC03259.avif
+  - src: /assets/img/keyboards/seven/DSC03262.avif
+  - src: /assets/img/keyboards/seven/DSC03264.avif
